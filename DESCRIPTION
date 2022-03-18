@@ -1,0 +1,15 @@
+Package: stdcab
+Type: Package
+Title: Spatial Thinning, Dependency, Cluster Analysis, and Blocking Using Spatial Point Data for Classification Problems
+Version: 0.1.0
+Authors@R: 
+    person(given = "Mukti", 
+    family = "Subedi", 
+    role = c("aut", "cre"),
+    email = "suvedimukti@gmail.com")
+Maintainer: Mukti Subedi <suvedimukti@gmail.com>
+Description: This package uses spatial point data for coordinate thinning (spatial thinning),Cluster analysis for random cross-validation and repeated-cross vaiation samples creation, spatial dependency (semivariance) analysis and plotting, and spatial blocking of observation.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
