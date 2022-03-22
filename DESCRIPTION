@@ -14,21 +14,25 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
-    automap,
     dplyr,
     gstat,
+    rsample,
+    ggplot2,
     magrittr,
     methods,
     purrr,
     rgdal,
     rlang,
-    rsample,
-    sf (>= 1.0.6),
     sp,
     tibble,
     tidyr,
-    tidyselect
+    tidyselect,
+    automap
 Depends: 
-    R (>= 2.10)
+    R (>= 2.10),
+    sf
 URL: https://github.com/suvedimukti/stdcab
 BugReports: https://github.com/suvedimukti/stdcab/issues
+Suggests: 
+    spelling
+Language: en-US

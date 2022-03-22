@@ -29,11 +29,11 @@ multiple_variogram <- function(data, coords = c("X", "Y"), length = 99)
 {
   #- check if it is sp
   # class_df<- class(data)
-  require("sf")
-  require("sp")
-  require("rgdal")
-  require("gstat")
-  require("automap")
+  # require("sf")
+  # require("sp")
+  # require("rgdal")
+  # require("gstat")
+  # require("automap")
   #----------------------------------------------------------------------------#
   if (!is.null(coords)) {
     coords <- tidyselect::eval_select(rlang::enquo(coords), data = data)

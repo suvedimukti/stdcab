@@ -4,6 +4,13 @@
 # stdcab
 
 <!-- badges: start -->
+
+[![Launch
+binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/suvedimukti/stdcab/master)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/stdcab)](https://CRAN.R-project.org/package=stdcab)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The goal of stdcab is to apply spatial thinning on multi-class spatial
@@ -27,6 +34,8 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(stdcab)
+#> Loading required package: sf
+#> Linking to GEOS 3.9.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE
 ## basic example code
 ```
 

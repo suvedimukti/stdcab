@@ -6,7 +6,15 @@
 \alias{stdcab-package}
 \title{stdcab: Spatial Thinning, Dependency, Cluster Analysis, and Blocking Using Spatial Point Data for Classification Problems}
 \description{
-This package uses spatial point data for coordinate thinning (spatial thinning),Cluster analysis for random cross-validation and repeated-cross vaiation samples creation, spatial dependency (semivariance) analysis and plotting, and spatial blocking of observation.
+This package uses spatial point data for coordinate thinning (spatial thinning),Cluster analysis for random cross-validation and repeated-cross validation samples creation, spatial dependency (semivariance) analysis and plotting, and spatial blocking of observation.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/suvedimukti/stdcab}
+  \item Report bugs at \url{https://github.com/suvedimukti/stdcab/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Mukti Subedi \email{suvedimukti@gmail.com}
