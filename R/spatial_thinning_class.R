@@ -1,4 +1,41 @@
 
+#' Spatial Thinning of multi-class point data
+#'
+#' @description The function is a wrapper around spatial thinning \code{\link[spThin]{thin}} function of spThin package.
+#'  It makes spatial thinning easy for multi-class input data set. This function is handy and flexible:
+#'  can support xy coordinates, spatialPoints, or simple features. Unlike spthin, this function assumes that data are in projected
+#'  planar coordinates system; preferably Universal Transverse Mercator (UTM).
+#'  There is no restrictions on number of columns in the data set as long as data is in the required format.
+#'
+#' @param data input data set one of sp, sf or data.frame with X and Y as variables
+#' @param spatial (logical) if variable is spatial or aspatial
+#' @param coords (vector) pair of coordinates if data type is aspatial
+#' @param distance minimum distance between two points of same class
+#' @param reps  (integer) replication
+#' @param class multi-class variable or strata variable
+#'
+#' @importFrom sf st_geometry
+#' @importFrom sf st_coordinates
+#' @importFrom stats dist
+#'
+#' @return data.frame
+#'
+#' @export
+#'
+#'
+#' @examples
+#'
+#' \dontrun{
+#' data("landcover")
+#' spatial_thinning_class(data = landcover, spatial = TRUE, coords = NULL,
+#' distance = 10000, reps = 2, class = "Class_namme")
+#' }
+#'
+#' @seealso \code{\link[spThin]{thin}}
+#'
+#'
+#'
+#'
 spatial_thinning_class <- function(data,
                                    spatial = FALSE,
                                    coords = c("X", "Y"),
@@ -146,9 +183,9 @@ spatial_thinning_class <- function(data,
     List[[seq.class]] <- reduced.rec.dfs[[reps]]
   } # for sp close
   # convert List to data frame using do.call function
-  df <- do.call(rbind.data.frame, List)
+  thin.df <- do.call(rbind.data.frame, List)
   # dname<- names(df)
   # cname<- cname[!cname %in% c("X", "Y", "Class")]
   # colnames(df) <- append("Longitude", "Latitude", "Class",cname)
-  return(df)
+  return(thin.df)
 } # function close
