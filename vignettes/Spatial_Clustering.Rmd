@@ -1,0 +1,19 @@
+---
+title: "Spatial Clustering of Point Data For Machine Learning in Tidy-modeling"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Spatial_Clustering}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(stdcab)
+```
