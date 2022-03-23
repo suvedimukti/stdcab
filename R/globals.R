@@ -20,5 +20,7 @@ utils::globalVariables(c('type',
 "median",
 "var",
 "var.x",
-"var.y")
+"var.y",
+'obs',
+'sgname')
 )

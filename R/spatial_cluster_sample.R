@@ -1,11 +1,10 @@
 
-#' Spatial cluster  cross-validation
+#' Spatial Cluster Cross-Validation
 #'
-#' @description This is a wrapper functin around \code{\link[spatialsample]{spatial_clustering_cv}}.
+#' @description This is a wrapper function around \code{\link[spatialsample]{spatial_clustering_cv}}.
 #'  Spatial cluster sampling splits the data into V groups groups using partitioning (kmeans)/ hierarchical(hclust) clustering of some variables, typically
 #'  spatial coordinates. A resample of the analysis data consists of V-1 of the folds/clusters while the assessment set contains the final fold/cluster. In
-#'  basic spatial cross-validation (i.e. no repeats), the number of resamples.
-#'  is equal to V.
+#'  basic spatial cross-validation (i.e. no repeats), the number of resamples is equal to V.
 #'
 #' @details
 #'  The variables in the `coords` argument, if input data is data.frame or extracted from sp, or sf data are used for  clustering of
@@ -15,7 +14,7 @@
 #'
 #' @param data input data set one of sp, sf or data.frame with X and Y as variables
 #' @param coords (vector) pair of coordinates if data type is aspatial
-#' @param v number of partitions of the dataset or number of clusters
+#' @param v number of partitions of the data set or number of clusters
 #' @param spatial (logical) if data set is spatial (when sf or sp) or aspatial (data.frame)
 #' @param clust_method one of partitioning (default = kmeans) or one of hierarchical methods(\code{\link[stats]{hclust}})
 #' @param dist_clust the agglomeration method to be used. This should be one of “ward.D”, “ward.D2”, “single”, “complete”,
@@ -38,11 +37,23 @@
 #' International Geoscience and Remote Sensing Symposium, Munich, 2012,
 #' pp. 5372-5375, doi: 10.1109/IGARSS.2012.6352393.
 #'
-#'\href{https://spatialsample.tidymodels.org/}{spatialsample}: provide functions and classes for spatial resampling to use with rsample
+#' Julia Silge (2021). spatialsample: Spatial Resampling Infrastructure. https://github.com/tidymodels/spatialsample,
+#' https://spatialsample.tidymodels.org.
+#'
+#' Julia Silge, Fanny Chow, Max Kuhn and Hadley Wickham (2021). rsample: General Resampling Infrastructure. R package version 0.1.1.
+#' https://CRAN.R-project.org/package=rsample
 #'
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' data("landcover")
+#'
+#' scv<- spatial_cluster_sample(data = landcover,coords = NULL, v = 10, spatial = TRUE,
+#'            clust_method = "kmeans",dist_clust = NULL,)
+#' scv
+#' }
+#'
 spatial_cluster_sample <- function(data = data, coords = NULL, v = 10, spatial = TRUE,
                                   clust_method = "kmeans",dist_clust = NULL, ...){
 
@@ -175,12 +186,12 @@ spatial_clustering_splits_cv <- function(data, coords,clust_method = clust_metho
   }
 }
 
-##' @export
-print.spatial_clustering_cv <- function(x, ...) {
-  cat("# ", pretty(x), "\n")
-  class(x) <- class(x)[!(class(x) %in% c("spatial_clustering_cv", "rset"))]
-  print(x, ...)
-}
+# ##' @export
+# print.spatial_clustering_cv <- function(x, ...) {
+#   cat("# ", pretty(x), "\n")
+#   class(x) <- class(x)[!(class(x) %in% c("spatial_clustering_cv", "rset"))]
+#   print(x, ...)
+# }
 
 # ## Keep synced with rsample
 #
@@ -210,6 +221,7 @@ split_unnamed <- function(x, f) {
   out <- split(x, f)
   unname(out)
 }
+
 #
 # pretty.spatial_clustering_cv <- function(x, ...) {
 #   details <- attributes(x)

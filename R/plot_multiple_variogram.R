@@ -1,7 +1,7 @@
 
-#' Plotting multiple variograms using ggplot2
+#' Plotting Multiple Variograms
 #' @description
-#' This function uses ggplot2 framework to plot semivariogram object result from
+#' This function uses ggplot2 framework to plot semivariogram object (`tibble`) result from
 #' \code{\link{multiple_variogram}}.
 #'
 #' @param object An output from \code{\link{multiple_variogram}} function
@@ -9,22 +9,26 @@
 #'      point and line format.
 #' @param showRange (logical) whether to display range in the plot
 #'
-#' @return A list with multiple semivariance plot and tibble with semivariogram information
+#' @return A list with multiple semivariance plot for all variables and a tibble with fitted semivariances for all variables.
 #' @export
 #'
 #' @seealso  \code{\link[automap]{autofitVariogram}}, \code{\link{fit_variogram}},
 #' \code{\link{plot_variogram}}
 #'
+#' @references
+#'  H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
 #'
 #' @examples
 #' \dontrun{
 #' data("landcover")
+#' landcover$Class_name<- NULL
 #' mfit  <- multiple_variogram(data = landcover,coords = NULL, length = 99)
-#' mplot <- plot_multiple_variogram
+#' mplot <- plot_multiple_variogram (mfit, plotType = "line", showRange = FALSE)
 #'
-#' # plot information
+#' # Display the plot
 #' mplot$plot
-#' # table
+#'
+#' # View tibble
 #' mplot$data
 #' }
 #'

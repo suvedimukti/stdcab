@@ -4,9 +4,9 @@
 \name{stdcab-package}
 \alias{stdcab}
 \alias{stdcab-package}
-\title{stdcab: Spatial Thinning, Dependency, Cluster Analysis, and Blocking Using Spatial Point Data for Classification Problems}
+\title{stdcab: Spatial Thinning, Dependency, Clustering, and Blocking of Spatial Point Data for Classification Problems}
 \description{
-This package uses spatial point data for coordinate thinning (spatial thinning),Cluster analysis for random cross-validation and repeated-cross validation samples creation, spatial dependency (semivariance) analysis and plotting, and spatial blocking of observation.
+This package uses spatial point data for spatial thinning, Cluster analysis for random cross-validation and repeated-cross validation samples creation. Spatial structure in the data accounted for using semivariance analysis and spatial blocking of observations. Results from spatial clustering and blocking ready to be used in the tidy-modeling framework.
 }
 \seealso{
 Useful links:

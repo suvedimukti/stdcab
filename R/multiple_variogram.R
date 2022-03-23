@@ -1,7 +1,10 @@
 
 #' Multiple Variogram Fitting
 #'
-#' @description This function returns experimental and fitted variogram information for multiple variables. For each variable \code{\link[automap]{autofitVariogram}} is used.
+#' @description This function returns experimental and fitted variogram information for multiple variables.
+#' For each variable \code{\link[automap]{autofitVariogram}} is used. The function supports
+#'    spatial data in simple features (sf), SpatialPointsDataFrame(sp) or data.frame.
+#'    If the input data is in `data.frame`, the X, and Y should be present in the data as variables.
 #'
 #' @param data input data set one of sp, sf or data.frame with X and Y as variables
 #' @param coords (vector) pair of coordinates if data type is aspatial
@@ -9,31 +12,33 @@
 #'
 #' @return
 #' A data frame with combined information from all variables as response is returned.
-#' The dataframe contains the experimental variogram information, the fitted variogram model information.
-#' The sums of squares (sserr) between the sample variogram and the fitted variogram model is dropped, please refer to \code{\link[automap]{autofitVariogram}} or \code{\link{fit_variogram}}
+#' The `data.frame` contains the experimental variogram information, the fitted variogram model information.
+#' The sums of squares (sserr) between the sample variogram dropped,
+#' For further information please refer to \code{\link[automap]{autofitVariogram}} or \code{\link{fit_variogram}}
+#'
+#' @references
+#' \href{https://CRAN.R-project.org/package=automap}{automatp}: A index page for automap package on [CRAN](https://cran.r-project.org)
+#'
+#'  Hiemstra, P.H., Pebesma, E.J., Twenhofel, C.J.W. and G.B.M. Heuvelink, 2008. Real-time automatic interpolation of ambient gamma dose rates from
+#'  the Dutch Radioactivity Monitoring Network. Computers & Geosciences.[DOI:](http://dx.doi.org/10.1016/j.cageo.2008.10.011)
+#'
 #' @export
 #'
 #' @examples
 #'
 #' \dontrun{
 #' data("landcover")
-#' multiple_variogram(data = landcover,coords = NULL, length = 99)
+#' fit_multiple_variogram(data = landcover,coords = NULL, length = 99)
 #' }
 #'
 #' @seealso  \code{\link[automap]{autofitVariogram}}, \code{\link{fit_variogram}},
 #' \code{\link{plot_variogram}}
 #'
 #'
-multiple_variogram <- function(data, coords = c("X", "Y"), length = 99)
+ multiple_variogram <- function(data, coords = c("X", "Y"), length = 99)
 # write for detecting coordinates.
 {
-  #- check if it is sp
-  # class_df<- class(data)
-  # require("sf")
-  # require("sp")
-  # require("rgdal")
-  # require("gstat")
-  # require("automap")
+
   #----------------------------------------------------------------------------#
   if (!is.null(coords)) {
     coords <- tidyselect::eval_select(rlang::enquo(coords), data = data)

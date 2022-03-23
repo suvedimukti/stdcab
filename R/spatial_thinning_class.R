@@ -1,5 +1,5 @@
 
-#' Spatial Thinning of multi-class point data
+#' Spatial Thinning of Multi-class Point Data
 #'
 #' @description The function is a wrapper around spatial thinning \code{\link[spThin]{thin}} function of spThin package.
 #'  It makes spatial thinning easy for multi-class input data set. This function is handy and flexible:
@@ -12,7 +12,8 @@
 #' @param coords (vector) pair of coordinates if data type is aspatial
 #' @param distance minimum distance between two points of same class
 #' @param reps  (integer) replication
-#' @param class multi-class variable or strata variable
+#' @param class multi-class variable or strata variable. For each class
+#' thinning will be applied based on specified distance
 #'
 #' @importFrom sf st_geometry
 #' @importFrom sf st_coordinates
@@ -22,6 +23,10 @@
 #'
 #' @export
 #'
+#' @details
+#' Spatial thinning expect the data in the projected coordinate system, the distance
+#  value is the threshold which limits the number of observations. All the observations, in a particular class, smaller than the
+#  distance thresholds are deleted. If there are more than two classes, minimum distance between observations from each class
 #'
 #' @examples
 #'

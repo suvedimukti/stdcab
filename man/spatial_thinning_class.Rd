@@ -2,7 +2,7 @@
 % Please edit documentation in R/spatial_thinning_class.R
 \name{spatial_thinning_class}
 \alias{spatial_thinning_class}
-\title{Spatial Thinning of multi-class point data}
+\title{Spatial Thinning of Multi-class Point Data}
 \usage{
 spatial_thinning_class(
   data,
@@ -24,7 +24,8 @@ spatial_thinning_class(
 
 \item{reps}{(integer) replication}
 
-\item{class}{multi-class variable or strata variable}
+\item{class}{multi-class variable or strata variable. For each class
+thinning will be applied based on specified distance}
 }
 \value{
 data.frame
@@ -35,6 +36,9 @@ The function is a wrapper around spatial thinning \code{\link[spThin]{thin}} fun
  can support xy coordinates, spatialPoints, or simple features. Unlike spthin, this function assumes that data are in projected
  planar coordinates system; preferably Universal Transverse Mercator (UTM).
  There is no restrictions on number of columns in the data set as long as data is in the required format.
+}
+\details{
+Spatial thinning expect the data in the projected coordinate system, the distance
 }
 \examples{
 

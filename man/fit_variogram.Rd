@@ -12,21 +12,22 @@ fit_variogram(data, response, coords = c("X", "Y"))
 \item{response}{A response variable within quotes e.g. "response"}
 
 \item{coords}{(vector) A pair of coordinate when input data is data.frame and not "sf" or "sp" object. The X (Longitude) and Y (Latitude) should be column variables
-in the input dataset}
+in the input data set}
 }
 \value{
-An object of type autofitVariogram is returned. This object contains the experimental variogram, the fitted variogram model and the sums of squares (sserr) between the sample variogram and the fitted variogram model.
+An object of a type autofitVariogram is returned. This object contains the experimental variogram,
+the fitted variogram model and the sums of squares (sserr) between the sample variogram and the fitted variogram model.
 }
 \description{
-This function is a wrapper around \code{\link[automap]{autofitVariogram}}. The function only runs a simple and ordinary
+This function is a wrapper around \code{\link[automap]{autofitVariogram}}. The function runs a simple and ordinary
  krigging. For example, if the respose variable is `R` then the formula that will be supplied in the data is `R~1`.
-   Five experimental variogram models are tested automatically on selected response variable. The function support spatial data in simple features (sf),
-   SpatialPointsDataFrame(sf) or data.frame. The later format requires X, and Y as variables in the data.frame.
+   Five experimental variogram models are tested automatically on selected response variable. The function supports
+   spatial data in simple features (sf), SpatialPointsDataFrame(sp) or data.frame. The later format requires X, and Y as variables in the data.frame.
 }
 \details{
 Five different types of geostatistical models are tested through \code{\link[automap]{autofitVariogram}}, they are:
  Spherical (Sph), Gaussian (Gau), Exponential (Exp), Matern family (Mat), and M.Stein's parameterization on Matern model.
- for more information please refer to original \code{\link[automap]{autofitVariogram}}.
+ For more information please refer to original \code{\link[automap]{autofitVariogram}} function from automap package.
 }
 \examples{
 
@@ -39,7 +40,10 @@ vfit
 
 }
 \references{
-\href{https://CRAN.R-project.org/package=automap}{automatp}: A index page for automap package on cran
+\href{https://CRAN.R-project.org/package=automap}{automatp}: A index page for automap package on [CRAN](https://cran.r-project.org)
+
+ Hiemstra, P.H., Pebesma, E.J., Twenhofel, C.J.W. and G.B.M. Heuvelink, 2008. Real-time automatic interpolation of ambient gamma dose rates from
+ the Dutch Radioactivity Monitoring Network. Computers & Geosciences.[DOI:](http://dx.doi.org/10.1016/j.cageo.2008.10.011)
 }
 \seealso{
 \code{\link[automap]{autofitVariogram}}, \code{\link{multiple_variogram}},

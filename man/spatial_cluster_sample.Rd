@@ -2,7 +2,7 @@
 % Please edit documentation in R/spatial_cluster_sample.R
 \name{spatial_cluster_sample}
 \alias{spatial_cluster_sample}
-\title{Spatial cluster  cross-validation}
+\title{Spatial Cluster Cross-Validation}
 \usage{
 spatial_cluster_sample(
   data = data,
@@ -19,7 +19,7 @@ spatial_cluster_sample(
 
 \item{coords}{(vector) pair of coordinates if data type is aspatial}
 
-\item{v}{number of partitions of the dataset or number of clusters}
+\item{v}{number of partitions of the data set or number of clusters}
 
 \item{spatial}{(logical) if data set is spatial (when sf or sp) or aspatial (data.frame)}
 
@@ -37,16 +37,25 @@ A tibble with classes `spatial_cv`, `rset`, `tbl_df`, `tbl`, and
  an identification variable `id`.
 }
 \description{
-This is a wrapper functin around \code{\link[spatialsample]{spatial_clustering_cv}}.
+This is a wrapper function around \code{\link[spatialsample]{spatial_clustering_cv}}.
  Spatial cluster sampling splits the data into V groups groups using partitioning (kmeans)/ hierarchical(hclust) clustering of some variables, typically
  spatial coordinates. A resample of the analysis data consists of V-1 of the folds/clusters while the assessment set contains the final fold/cluster. In
- basic spatial cross-validation (i.e. no repeats), the number of resamples.
- is equal to V.
+ basic spatial cross-validation (i.e. no repeats), the number of resamples is equal to V.
 }
 \details{
 The variables in the `coords` argument, if input data is data.frame or extracted from sp, or sf data are used for  clustering of
  the data into disjointed sets. These clusters are used as the folds for cross-validation. Depending on how the
  data are distributed spatially.
+}
+\examples{
+\dontrun{
+data("landcover")
+
+scv<- spatial_cluster_sample(data = landcover,coords = NULL, v = 10, spatial = TRUE,
+           clust_method = "kmeans",dist_clust = NULL,)
+scv
+}
+
 }
 \references{
 A. Brenning, "Spatial cross-validation and bootstrap for the assessment of
@@ -54,5 +63,9 @@ prediction rules in remote sensing: The R package sperrorest," 2012 IEEE
 International Geoscience and Remote Sensing Symposium, Munich, 2012,
 pp. 5372-5375, doi: 10.1109/IGARSS.2012.6352393.
 
-\href{https://spatialsample.tidymodels.org/}{spatialsample}: provide functions and classes for spatial resampling to use with rsample
+Julia Silge (2021). spatialsample: Spatial Resampling Infrastructure. https://github.com/tidymodels/spatialsample,
+https://spatialsample.tidymodels.org.
+
+Julia Silge, Fanny Chow, Max Kuhn and Hadley Wickham (2021). rsample: General Resampling Infrastructure. R package version 0.1.1.
+https://CRAN.R-project.org/package=rsample
 }
