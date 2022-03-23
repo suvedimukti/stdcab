@@ -1,4 +1,4 @@
-#' Plotting variogram using ggplot2
+#' Plotting Semivariogram Using ggplot2
 #'
 #' @description
 #' This function uses ggplot2 framework to plot semivariogram object results from
@@ -19,10 +19,11 @@
 #' \dontrun{
 #' data("landcover")
 #'
-#' vfit<- fit_variogram(data = landcover,response = "ASYM",coords = NULL)
-#' vplot<- plot_variogram(object = vfit, length = 99, showRange = TRUE)
+#' vfit  <- fit_variogram(data = landcover,response = "ASYM",coords = NULL)
+#' vplot <- plot_variogram(object = vfit, length = 99, showRange = TRUE)
+#'
 #' # plot variogram
-#' vplot$plot
+#'  vplot$plot
 #'
 #' }
 #'
