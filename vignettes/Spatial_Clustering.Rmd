@@ -2,7 +2,7 @@
 title: "Spatial Clustering of Point Data For Machine Learning in Tidy-modeling"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Spatial_Clustering}
+  %\VignetteIndexEntry{Spatial Clustering of Point Data For Machine Learning in Tidy-modeling}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -35,10 +35,7 @@ made within the distance at which observations are spatially structured, and 3) 
 (Independent or explanatory variables) are often correlated with dependence structures, resulting model 
 can over-inflate the model's accuracy by wholly or partially removing residual structures.
 
-Parametric models can address dependence structures in the data (e.g., autoregressive or mixed model), at least in theory. 
-However, in practice, model specification bias together with structural over-fitting, can seriously impair the 
-diagnostic evaluations of the model. Further, well-known popular machine learning models (e.g., random forest)
-don't allow accounting for such spatial dependence structures. 
+Parametric models can address dependence structures in the data (e.g., autoregressive or mixed model), at least in theory. However, in practice, model specification bias together with structural over-fitting, can seriously impair the diagnostic evaluations of the model. Further, well-known popular machine learning models (e.g., random forest) don't allow accounting for such spatial dependence structures. 
 
 ## What happens with non-parametric models?
 
@@ -65,9 +62,154 @@ structure. Therefore, the resulting model would favor the complex, and
 accuracy metrics would be too optimistic.
 
 
-# How to deal with it
+## How to deal with it
+
+There are several ways to address the spatial dependency in the data for parametric 
+analysis such as autoregressive (AR) models, generalized least squares (GLS) 
+and mixed effects models. However, even after such remedial measures, the problem can still exist. Which invites the strategic blocking of observations. The `stdcab` offers two approaches:
+
+1) Clustering: Partitioning and Hierarchical clustering
+
+2) Blocking: Splitting coordinate space into regular grids
+
+
+# Clustering
+
+Clustering can be done for k-fold cross validation or repeated k-fold cross validation. Two two options are possible 1) partitioning clustering (using coordinates) or 2) hierarchical clustering. 
+
+## Partitioning clustering 
+
+*kmeans* clustering is one of the widely used un-supervised multivariate analysis. 
+
+```{r kmeans}
+
+data("landcover")
+ 
+# setting seeds
+
+set.seed(1318)
+
+rnd_fold<- spatial_cluster_sample(data = landcover, coords = NULL, v = 10,
+                                  spatial = TRUE, clust_method = "kmeans")
+
+```
+
+Now we can create a dataframe from the list of `splits`
+```{r dft}
+
+gen_df <- function(split){
+  gp <- analysis(split) %>%
+   dplyr::mutate(analysis = "Training") %>%
+   dplyr::bind_rows(assessment(split) %>%
+   dplyr::mutate(analysis = "Testing")) 
+}
+
+def<- purrr::map_df(rnd_fold$splits, gen_df) 
+
+# short-cut to add fold information
+vec <- paste0("Fold", 1:10)
+
+# folding information replication
+fold<- rep(vec, each = 1922)
+# apply fold
+
+def$fold<- fold
+```
+
+Now we have fold and training and testing data for each fold, we can visualize
+folds using ggplot2
+
+```{r visualize,fig.width = 10, fig.height = 8}
+
+require(ggplot2)
+require(animation)
+require(gganimate)
+
+
+# remove coordinates to avoid cluttering
+
+blank_xy<- function(){
+  theme(axis.text.x=element_blank(),
+        #axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(),
+        #axis.ticks.y=element_blank() 
+  )
+  
+}
+
+ggplot(def,aes(X, Y, color = analysis)) +
+  geom_point(alpha = 0.7, size = 2) +
+  coord_fixed()+
+  theme_bw(base_size = 12) +
+  labs(color = "Training/Testing")+
+  scale_color_manual(values = c("purple", "blue"))+
+  xlab("Longitude (m)")+
+  ylab("Latitidue (m)")+
+  facet_wrap(facets = vars(fold),nrow = 5, scales = "fixed")+
+  blank_xy()
 
 
 
+```
 
 
+## Hierarchical Clustering
+
+**spatial_cluster_sample** supports hierarchical clustering using `stats::hclust` function. Unlike, `kmeans` 
+hierarchical clustering does not requires the number of k. This version does not support visualizations as to how many distinct clusters are there. Number of clusters and repeats to be used in the **repeated_spatial_cluster_sample** should be informed by the data. Other functionalists will be added in the future release. 
+
+```{r hclust}
+
+set.seed(1318)
+
+spc_rhcv<- spatial_cluster_sample(data = landcover, v = 10, coords = NULL, 
+                                  spatial = TRUE, clust_method = "hclust",
+                                  dist_clust = "ward")
+
+head(spc_rhcv,10)
+
+# examine fold 1 and fold 5
+
+spc_rhcv$splits[[1]]
+
+spc_rhcv$splits[[5]]
+
+
+# create a data set for visualization of these folds
+ #------ recall function from above
+hdef<- purrr::map_df(spc_rhcv$splits, gen_df) 
+
+# fold information is same so lets append
+
+hdef$fold<- fold
+
+
+
+```
+
+### Visualize
+
+
+```{r hclustvis, echo= TRUE}
+
+p_hclus<- ggplot(hdef,aes(X, Y, color = analysis)) +
+  geom_point(alpha = 0.7, size = 2) +
+  coord_fixed()+
+  theme_bw(base_size = 12) +
+  labs(color = "Train/Test")+
+  scale_color_manual(values = c("purple", "blue"))+
+  xlab("Longitude (m)")+
+  ylab("Latitidue (m)")+
+  #transition_states(id,state_length = 2)
+  labs(title =
+    "Location {previous_state}") +
+  theme(plot.title = element_text(hjust = 0.5))+
+  transition_states(
+    states = fold, 
+    transition_length = 4,
+    state_length = 4)
+
+```
+```{r plotgif, eval=requireNamespace('gifski', quietly = TRUE), echo=FALSE, fig.height=8, fig.width=10}
+p_hclus
+```

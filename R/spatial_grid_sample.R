@@ -18,6 +18,10 @@
 #'  result is the list of `plot`, `sf` grid, and `tbl_df`, `tbl`, and `data.frame`
 #' @export
 #'
+#' @references
+#'
+#' Pebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R
+#' Journal 10 (1), 439-446, https://doi.org/10.32614/RJ-2018-009
 #' @examples
 #'
 #' lcdat <- landcover
@@ -32,17 +36,19 @@
 #'
 #' @details
 #' The spatial grid sample generates tessellation or fishnet in ESRI's ArcGIS software,
-#' Currently only sp and sf data are allowed. The grid shows the number of samples within the grid and grid number
+#' Currently only sp and sf data are allowed. The grid shows the number of samples within the grid and grid
+#'  number
 #' e.g. (80,1). The `default` selection  numbers the grids from bottom left and increases row wise.
-#' `random` selection assigns the grid number randomly. The `systematic` grid numbering happens from bottom right and column wise.
+#' `random` selection assigns the grid number randomly. The `systematic` grid numbering happens from bottom
+#'  right and column wise.
 #'
-#'    The `random` selection as its' name applies select grids randomly, and `systematic` selects the grids
-#'     sequentially up to `k`
+#'    The `random` selection as its' name applies select grids randomly, and `systematic` selction option
+#'    allows to selects the grids sequentially up to `k`
 #'
 spatial_grid_sample <- function(data,
                                 cellsize = c(10000, 10000),
                                 offset = c(1000, 1000),
-                                show_grid = TRUE, fold_selection = "default", k) {
+                                show_grid = TRUE, fold_selection = "default", k=NULL) {
   #-------- make coords = c("x", "y)
   #-------- and sp to "sf"
   #------- install ggplot
@@ -365,3 +371,4 @@ names0 <- function(num, prefix = "x") {
   ind <- gsub(" ", "0", ind)
   paste0(prefix, ind)
 }
+

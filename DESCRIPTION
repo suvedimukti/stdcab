@@ -27,6 +27,8 @@ BugReports: https://github.com/suvedimukti/stdcab/issues
 Suggests: 
     knitr,
     rmarkdown,
+    animation,
+    gganimate,
     spelling,
     testthat (>= 3.0.0)
 Language: en-US

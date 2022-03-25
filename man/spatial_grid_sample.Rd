@@ -10,7 +10,7 @@ spatial_grid_sample(
   offset = c(1000, 1000),
   show_grid = TRUE,
   fold_selection = "default",
-  k
+  k = NULL
 )
 }
 \arguments{
@@ -38,12 +38,14 @@ possible grids based on the values of `cellsize`. The cellsize is the length and
 }
 \details{
 The spatial grid sample generates tessellation or fishnet in ESRI's ArcGIS software,
-Currently only sp and sf data are allowed. The grid shows the number of samples within the grid and grid number
+Currently only sp and sf data are allowed. The grid shows the number of samples within the grid and grid
+ number
 e.g. (80,1). The `default` selection  numbers the grids from bottom left and increases row wise.
-`random` selection assigns the grid number randomly. The `systematic` grid numbering happens from bottom right and column wise.
+`random` selection assigns the grid number randomly. The `systematic` grid numbering happens from bottom
+ right and column wise.
 
-   The `random` selection as its' name applies select grids randomly, and `systematic` selects the grids
-    sequentially up to `k`
+   The `random` selection as its' name applies select grids randomly, and `systematic` selction option
+   allows to selects the grids sequentially up to `k`
 }
 \examples{
 
@@ -57,4 +59,8 @@ spg <- spatial_grid_sample(data = lcdat, cellsize = c(10000,10000),
 tgrid<- spatial_grid_cv(data = train,cellsize = c(10000, 10000),showGrids = TRUE,
 fold_selection = "random", k = 6)}
 
+}
+\references{
+Pebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R
+Journal 10 (1), 439-446, https://doi.org/10.32614/RJ-2018-009
 }

@@ -1,0 +1,101 @@
+---
+title: "Spatial Grid/Block Sampling For TidyModelinng"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Spatial Grid/Block Sampling For TidyModelinng}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(stdcab)
+```
+
+# Introduction
+
+In spatial analysis, creation of regular polygons within the extent of certain 
+geographic data is common task. This could be done to create regular equal size 
+grids. This could be useful in uniform sampling or retroactively random selection.
+
+Spatial tessellation or grids splits the extent into series of sub-extent, which is then used to summarize the 
+information at hand by that extent. For classification, to reduce the spatial structures of the data
+the extent of the training data or study area can be divided into sub-extent/sub-units. The information that falls within 
+the sub-extent then can be summarize to serve the purpose. For example, the frequency of criminal activities across county, number of trees in each 10 km grids etc.
+
+How large the sub-units/sub-extent should be can be calculated using semi-variogram analysis. The goal here is to maximize the 
+heterogeneity between blocks. This spatial grids is loosely similar to randomized control design in lot of aspects. 
+
+The function `spatial_grid_sample` is similar to generate tessellations or create Fishnet tool in ArcGIS Pro or 
+ArcGIS desktop software from Environmental System Research Institute (ESRI). This function only supports rectangles or squares.
+The width and height information can be obtained from running `fit_variogram` or `multiple_variogram` functions. 
+
+
+# Create spatial grid of 10km by 10km
+
+To create the spatial grids the unit should be in the projection system, preferably in Universal 
+Transverse Mercator or State Plane System. The function also allows to specify if groups of sub-grids needs to be selected as in the case of k-fold cross validation. For selection of sub-grids.
+
+```{r gengrids, fig.height=8, fig.width=8}
+
+data(landcover)
+
+sp_grid<- spatial_grid_sample(data = landcover,cellsize = c(10000, 10000),
+                              show_grid = TRUE,fold_selection = "default",
+                              k = 1)
+
+```
+
+The `default` option ignores the value of `k` while splitting in the data, 
+however expect the value. Other options are `random` selections of 
+sub-grids into `k` groups, and systematic selection. 
+
+If `show_grid` option is NULL, the the output will not have a grid-map. 
+However, saves created grids and observations within each grid. 
+
+
+```{r plotting_es, fig.height=8, fig.width=8}
+#-----------------------#
+sblock<- sp_grid$blocks
+
+gp2 <- ggplot2::ggplot() +
+      ggplot2::geom_sf(
+        data = sblock, color = "purple",
+        fill = "orangered4",
+        alpha = 0.04,
+        size = 0.7
+      ) 
+gp2
+```
+
+
+# Spatial grid resamples for Tidy-modeling
+
+The final output from the data is the `splits` tibble. With a default methods, resultant grids
+can be used as a leave-one-out cross validation. 
+
+```{r rsplit, paged.print=TRUE}
+# Create spatial grid of 10km by 10km
+# make manual_rset object
+msplits<- rsample::manual_rset(splits = sp_grid$splits$splits, ids = sp_grid$splits$id)
+
+# convert to caert compatible format
+caret_train_test<- rsample::rsample2caret(msplits,c("analysis","assessment"))
+
+caret_train_test[1]$index$Fold01
+
+```
+
+In the above example, total 35 grids of 10km width are returned. Which are `rsample` compatible. 
+In case these information needs to be transferred to `caret` compatible format, this can be easily accomplished
+by using
+
+
+
+
