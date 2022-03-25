@@ -15,20 +15,19 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://travis-ci.com/suvedimukti/stdcab.svg?branch=master)](https://travis-ci.com/suvedimukti/stdcab)
 <!-- badges: end -->
 
-The goal of stdcab is to apply spatial thinning on multi-class spatial
-point data, Cluster analysis for random cross-validation and
-repeated-cross validation samples creation for tidy-modeling framework,
-spatial dependency (semivariance) analysis and plotting, and spatial
-blocking of observation.
+The goal of the **stdcab** package is to apply spatial thinning on
+multi-class spatial point data, spatial cluster analysis for random and
+repeated cross-validations which partitions data into training and
+testing set compatible to tidy-modeling resamples. The package allows to
+run semivariance analysis, plotting and spatial blocking of
+observations.
 
 # Installation
 
 You can install the released version of stdcab from
 [CRAN](https://cran.r-project.org) with:
 
-``` r
-install.packages("stdcab")
-```
+`{r install install.packages("stdcab")`
 
 # Repeated Cluster CV: Rsample compatible
 

@@ -28,7 +28,7 @@ The goal of the **stdcab** package is to apply spatial thinning on multi-class s
 
 You can install the released version of stdcab from [CRAN](https://cran.r-project.org) with:
 
-``` {r install}
+``` {r install
 install.packages("stdcab")
 ```
 
