@@ -47,6 +47,12 @@ e.g. (80,1). The `default` selection  numbers the grids from bottom left and inc
 }
 \examples{
 
+lcdat <- landcover
+
+set.seed(1318)
+spg <- spatial_grid_sample(data = lcdat, cellsize = c(10000,10000),
+                     show_grid = TRUE, fold_selection = "random", k = 5)
+
 \dontrun{
 tgrid<- spatial_grid_cv(data = train,cellsize = c(10000, 10000),showGrids = TRUE,
 fold_selection = "random", k = 6)}

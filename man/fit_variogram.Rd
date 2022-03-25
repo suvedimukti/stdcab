@@ -30,6 +30,25 @@ Five different types of geostatistical models are tested through \code{\link[aut
  For more information please refer to original \code{\link[automap]{autofitVariogram}} function from automap package.
 }
 \examples{
+# Read data
+lcdat<- landcover
+
+# fit variogram
+avgm <- fit_variogram(data = lcdat,response = "ASYM",coords = NULL)
+
+# look at the range
+
+avgm$var_model
+
+# variogram with X,Y variable.
+
+df <- data.frame(sf::st_coordinates(lcdat))
+# drop geometry from the sf data
+lcdat <- sf::st_drop_geometry(lcdat)
+# cbind lcdata with coordinates
+ndat<- cbind(df, lcdat)
+# fit variogram
+asym_fit<- fit_variogram(data = ndat,response = "ASYM",coords = c("X", "Y"))
 
 \dontrun{
 data("landcover")
@@ -40,10 +59,12 @@ vfit
 
 }
 \references{
-\href{https://CRAN.R-project.org/package=automap}{automatp}: A index page for automap package on [CRAN](https://cran.r-project.org)
-
- Hiemstra, P.H., Pebesma, E.J., Twenhofel, C.J.W. and G.B.M. Heuvelink, 2008. Real-time automatic interpolation of ambient gamma dose rates from
+Hiemstra, P.H., Pebesma, E.J., Twenhofel, C.J.W. and G.B.M. Heuvelink, 2008. Real-time automatic interpolation of ambient gamma dose rates from
  the Dutch Radioactivity Monitoring Network. Computers & Geosciences.[DOI:](http://dx.doi.org/10.1016/j.cageo.2008.10.011)
+
+Pebesma, E.J., 2004. Multivariable geostatistics in S: the gstat package. Computers & Geosciences, 30: 683-691.
+Benedikt Gräler, Edzer Pebesma and Gerard Heuvelink, 2016. Spatio-Temporal Interpolation using gstat.  The R
+Journal 8(1), 204-218
 }
 \seealso{
 \code{\link[automap]{autofitVariogram}}, \code{\link{multiple_variogram}},

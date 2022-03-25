@@ -14,7 +14,34 @@
 #' @seealso  \code{\link[automap]{autofitVariogram}}, \code{\link{fit_variogram}},
 #' \code{\link{plot_variogram}}
 #'
+#' @references
+#'
+#' Pebesma, E.J., 2004. Multivariable geostatistics in S: the gstat package. Computers & Geosciences, 30: 683-691.
+#' Benedikt Gräler, Edzer Pebesma and Gerard Heuvelink, 2016. Spatio-Temporal Interpolation using gstat.  The R
+#' Journal 8(1), 204-218
+#'
+#' Hiemstra, P.H., Pebesma, E.J., Twenhofel, C.J.W. and G.B.M. Heuvelink, 2008. Real-time automatic interpolation of ambient gamma dose rates from
+#' the Dutch Radioactivity Monitoring Network. Computers & Geosciences.[DOI:](http://dx.doi.org/10.1016/j.cageo.2008.10.011)
+#'
+#' H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+#'
 #' @examples
+#'
+#' ##  Run semivariance on Principal Component Axis1
+#' # read data
+#' data("landcover")
+#'
+#' vfit  <- fit_variogram(data = landcover, response = "MPC1", coords = NULL)
+#' vplot <- plot_variogram(object = vfit, length = 99, showRange = TRUE)
+#'
+#' # plot
+#'  vplot$plot
+#'
+#' vfit_pc2  <- fit_variogram(data = landcover, response = "MPC1", coords = NULL)
+#' vplot_pc2  <- plot_variogram(object = vfit_pc2, length = 99, showRange = FALSE)
+#'
+#' # plot
+#'  vplot_pc2$plot
 #'
 #' \dontrun{
 #' data("landcover")
@@ -24,6 +51,8 @@
 #'
 #' # plot variogram
 #'  vplot$plot
+#' # data
+#' vplot$data
 #'
 #' }
 #'

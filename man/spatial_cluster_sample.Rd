@@ -2,7 +2,7 @@
 % Please edit documentation in R/spatial_cluster_sample.R
 \name{spatial_cluster_sample}
 \alias{spatial_cluster_sample}
-\title{Spatial Cluster Cross-Validation}
+\title{Spatial Cluster Cross-Validation for Tidy Modeling}
 \usage{
 spatial_cluster_sample(
   data = data,
@@ -46,8 +46,33 @@ This is a wrapper function around \code{\link[spatialsample]{spatial_clustering_
 The variables in the `coords` argument, if input data is data.frame or extracted from sp, or sf data are used for  clustering of
  the data into disjointed sets. These clusters are used as the folds for cross-validation. Depending on how the
  data are distributed spatially.
+
+  Since this function heavily relies on "spatialresample" all the attributes class
+and attributes were not modified from. Infact, these information holds true in case of
+\code{\link{repeated_spatial_cluster_sample}}.
 }
 \examples{
+
+# spatial point clustering
+
+# read data
+
+data("landcover")
+# setting seeds
+set.seed(1318)
+spc_fold<- spatial_cluster_sample(data = landcover,coords = NULL,v = 10,spatial = TRUE,
+                                 clust_method = "kmeans")
+class(spc_fold)
+
+
+library(sp)
+
+data(meuse)
+set.seed(1319)
+
+spc_df_fold<-spatial_cluster_sample(data = meuse, coords = c("x", "y"), v = 10,
+                                   spatial = FALSE, clust_method = "kmeans")
+
 \dontrun{
 data("landcover")
 

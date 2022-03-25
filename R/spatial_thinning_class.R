@@ -1,4 +1,3 @@
-
 #' Spatial Thinning of Multi-class Point Data
 #'
 #' @description The function is a wrapper around spatial thinning \code{\link[spThin]{thin}} function of spThin package.
@@ -25,15 +24,47 @@
 #'
 #' @details
 #' Spatial thinning expect the data in the projected coordinate system, the distance
-#  value is the threshold which limits the number of observations. All the observations, in a particular class, smaller than the
-#  distance thresholds are deleted. If there are more than two classes, minimum distance between observations from each class
+#'  value is the threshold which limits the number of observations. All the observations, in a particular class, smaller than the
+#'  distance thresholds are deleted. If there are more than two classes, minimum distance between observations from each class.
+#'
+#'  @references
+#' Aiello-Lammens, M. E., Boria, R. A., Radosavljevic, A. , Vilela, B. and Anderson, R. P. (2015). spThin: an
+#' Rpackage for spatial thinning of species occurrence records for use in ecological niche models.
+#' Ecography, 38:541-545. URL https://onlinelibrary.wiley.com/doi/10.1111/ecog.01132.
 #'
 #' @examples
+#' ## load data from the package
+#' tdat<- landcover
+#'
+#' # Run spatial thinning (sf format)
+#' stc<- spatial_thinning_class(data = tdat,spatial = TRUE,
+#' coords = NULL,distance = 10000,reps = 1,class = "Class_name")
+#'
+#' ### compare the number of samples from original data to the thinned data
+#' ## Original data
+#' library(dplyr)
+#' tdat %>% group_by(Class_name) %>% summarize(n = n())
+#'
+#' ## Thinned data
+#' stc %>% group_by(Class_name) %>% summarize(n = n())
+#'
+#' ##  spatial thinning using meuse data
+#' # load library and data
+#' library(sp)
+#' data(meuse)
+#'
+#' # apply thinning
+#'
+#' mthin<- spatial_thinning_class(data = meuse, spatial = FALSE,
+#'          coords = c("x", "y"),
+#'          distance = 1000,
+#'          reps = 2, class = "ffreq"
+#'          )
 #'
 #' \dontrun{
-#' data("landcover")
+#' data<- landcover
 #' spatial_thinning_class(data = landcover, spatial = TRUE, coords = NULL,
-#' distance = 10000, reps = 2, class = "Class_namme")
+#' distance = 10000, reps = 2, class = "Class_name")
 #' }
 #'
 #' @seealso \code{\link[spThin]{thin}}

@@ -17,8 +17,8 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
-    dplyr, gstat, rsample,ggplot2,magrittr, methods,purrr,rgdal,rlang,
-    sp,  tibble, tidyr, tidyselect, automap
+    dplyr, gstat, rsample,ggplot2,magrittr, methods,purrr,
+    rgdal, rlang, sp, tibble, tidyr, tidyselect, automap
 Depends: 
     R (>= 2.10),
     sf
@@ -27,6 +27,8 @@ BugReports: https://github.com/suvedimukti/stdcab/issues
 Suggests: 
     knitr,
     rmarkdown,
-    spelling
+    spelling,
+    testthat (>= 3.0.0)
 Language: en-US
 VignetteBuilder: knitr
+Config/testthat/edition: 3

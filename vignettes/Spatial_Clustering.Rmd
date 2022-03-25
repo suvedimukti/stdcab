@@ -17,3 +17,57 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(stdcab)
 ```
+
+# Introduction
+
+Ecological data usually have inherent spatial structures; nearer things are 
+more similar than distant things (Toblers, 1970). This relationship can exist 
+at any spatial scale from local to global with a positive spatial autocorrelation
+as a nonzero covariance between spatially proximal observations or proximal values.  
+
+This definition imposes the need for a means to measure, 
+based on a sample of data values, the covariance between nearby points and to 
+decide whether or not this covariance is consistent with a random spatial 
+arrangement of values. Such non-randomness in the data are not problematic. Correlated data allows
+to uncover patterns from the process. However, in parametric statistical analysis of 
+data problems can arise 1) non-randomness of error; 2) pseudo-replication-if too many observations are
+made within the distance at which observations are spatially structured, and 3) As the predictor variables
+(Independent or explanatory variables) are often correlated with dependence structures, resulting model 
+can over-inflate the model's accuracy by wholly or partially removing residual structures.
+
+Parametric models can address dependence structures in the data (e.g., autoregressive or mixed model), at least in theory. 
+However, in practice, model specification bias together with structural over-fitting, can seriously impair the 
+diagnostic evaluations of the model. Further, well-known popular machine learning models (e.g., random forest)
+don't allow accounting for such spatial dependence structures. 
+
+## What happens with non-parametric models?
+
+In an ideal model building ( or machine learning), evaluation and validation should be 
+performed using independent data. For example, model evaluation data should not come from 
+within the same geographic extent from which the model was built (spatially distinct). 
+Two scenarios may arise in such cases: 1) either no such independent data exist; usually, 
+we tend to focus on collecting data within the spatial extent of our study area. 
+In classification problems of remote sensing data, we may collect sample data from on-screen (heads-up) digitization. 
+We can't guarantee that the relationship in the data is still the same. 
+2) Data set on hand may not meet the assumption of independence.
+
+The current paradigm of evaluation predictive error of machine learning model(s) is 
+through cross-validation, usually with the use of hold-out(saving some percent of 
+total sample data). The key idea is that the training data is independent of hold-out 
+(validation) data. However, training points tend to cluster due to resources or 
+time limitations. While it is possible to create independent data apriori, this 
+is not usually the case; because we can't be certain independence of data as 
+spatial dependence can happen at any scale.
+
+Hold-out data, however, does not necessarily get rid of the problem at hand, 
+as testing/validation data can be drawn from a nearby location with a dependence 
+structure. Therefore, the resulting model would favor the complex, and 
+accuracy metrics would be too optimistic.
+
+
+# How to deal with it
+
+
+
+
+

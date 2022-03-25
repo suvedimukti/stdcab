@@ -1,5 +1,4 @@
-
-#' Spatial Cluster Cross-Validation
+#' Spatial Cluster Cross-Validation for Tidy Modeling
 #'
 #' @description This is a wrapper function around \code{\link[spatialsample]{spatial_clustering_cv}}.
 #'  Spatial cluster sampling splits the data into V groups groups using partitioning (kmeans)/ hierarchical(hclust) clustering of some variables, typically
@@ -10,6 +9,10 @@
 #'  The variables in the `coords` argument, if input data is data.frame or extracted from sp, or sf data are used for  clustering of
 #'  the data into disjointed sets. These clusters are used as the folds for cross-validation. Depending on how the
 #'  data are distributed spatially.
+#'
+#'   Since this function heavily relies on "spatialresample" all the attributes class
+#' and attributes were not modified from. Infact, these information holds true in case of
+#' \code{\link{repeated_spatial_cluster_sample}}.
 #'
 #'
 #' @param data input data set one of sp, sf or data.frame with X and Y as variables
@@ -46,6 +49,29 @@
 #' @export
 #'
 #' @examples
+#'
+#' # spatial point clustering
+#'
+#' # read data
+#'
+#' data("landcover")
+#' # setting seeds
+#' set.seed(1318)
+#' spc_fold<- spatial_cluster_sample(data = landcover,coords = NULL,v = 10,spatial = TRUE,
+#'                                  clust_method = "kmeans")
+#' class(spc_fold)
+#'
+#  using meuse data from sp
+#'
+#' library(sp)
+#'
+#' data(meuse)
+#  setting seeds
+#' set.seed(1319)
+#'
+#' spc_df_fold<-spatial_cluster_sample(data = meuse, coords = c("x", "y"), v = 10,
+#'                                    spatial = FALSE, clust_method = "kmeans")
+#'
 #' \dontrun{
 #' data("landcover")
 #'

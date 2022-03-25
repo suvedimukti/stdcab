@@ -1,5 +1,5 @@
-
 #' Plotting Multiple Variograms
+#'
 #' @description
 #' This function uses ggplot2 framework to plot semivariogram object (`tibble`) result from
 #' \code{\link{multiple_variogram}}.
@@ -16,16 +16,45 @@
 #' \code{\link{plot_variogram}}
 #'
 #' @references
-#'  H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+#'
+#' Pebesma, E.J., 2004. Multivariable geostatistics in S: the gstat package. Computers & Geosciences, 30: 683-691.
+#' Benedikt Gräler, Edzer Pebesma and Gerard Heuvelink, 2016. Spatio-Temporal Interpolation using gstat.  The R
+#' Journal 8(1), 204-218
+#'
+#' Hiemstra, P.H., Pebesma, E.J., Twenhofel, C.J.W. and G.B.M. Heuvelink, 2008. Real-time automatic interpolation of ambient gamma dose rates from
+#' the Dutch Radioactivity Monitoring Network. Computers & Geosciences.[DOI:](http://dx.doi.org/10.1016/j.cageo.2008.10.011)
+#'
+#' H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
 #'
 #' @examples
-#' \dontrun{
+#' ##  Run semivariance on Principal Component Axis1
+#' # read data
 #' data("landcover")
+#'
+#' # remove factor variable
+#'
+#' landcover$class_name <- NULL
+#'
+#'# fit multiple variograms
+#'
+#' mvfit  <- fit_variogram(data = landcover, response = "MPC1", coords = NULL)
+#'
+#' mvplot <- plot_variogram(object = mvfit, length = 99, showRange = TRUE)
+#'
+#'
+#' \dontrun{
+#' # load data
+#' data("landcover")
+#' # remove factor variable
 #' landcover$Class_name<- NULL
+#'
+#' # fit multiple variograms
 #' mfit  <- multiple_variogram(data = landcover,coords = NULL, length = 99)
+#'
 #' mplot <- plot_multiple_variogram (mfit, plotType = "line", showRange = FALSE)
 #'
 #' # Display the plot
+#'
 #' mplot$plot
 #'
 #' # View tibble

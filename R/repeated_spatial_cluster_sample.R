@@ -1,5 +1,4 @@
-
-#' Repeated Spatial Cluster Cross-Validation
+#' Repeated Spatial Cluster Cross-Validation for Tidy Modeling
 #'
 #'
 #' @description Repeated spatial cluster sampling splits the data into V groups using partitioning
@@ -41,6 +40,12 @@
 #'     The class and attributes information are same as defined in \code{\link[spatialsample]{spatial_clustering_cv}}.
 #'
 #' @references
+#'
+#' A. Brenning, "Spatial cross-validation and bootstrap for the assessment of
+#' prediction rules in remote sensing: The R package sperrorest," 2012 IEEE
+#' International Geoscience and Remote Sensing Symposium, Munich, 2012,
+#' pp. 5372-5375, doi: 10.1109/IGARSS.2012.6352393.
+#'
 #' Julia Silge (2021). spatialsample: Spatial Resampling Infrastructure. https://github.com/tidymodels/spatialsample,
 #' https://spatialsample.tidymodels.org.
 #'
@@ -50,6 +55,30 @@
 #' @export
 #'
 #' @examples
+#'
+#' ### spatial repeated sampling
+#' data("landcover")
+#'
+#' ## Using partitioning clustering
+#' set.seed(1318)
+#'
+#' srs<- repeated_spatial_cluster_sample(data = landcover,v = 2, repeats = 2,
+#'       coords = NULL,spatial = TRUE, clust_method = "kmeans",
+#'       dist_clust = NULL)
+#' srs
+#'## Hierarchical clustering
+#' set.seed(1318)
+#'
+#' srs_hw2<- repeated_spatial_cluster_sample(data = landcover,v = 2, repeats = 2,
+#'                         coords = NULL, spatial = TRUE, clust_method = "hclust",
+#'                         dist_clust = "ward.D2")
+#'
+#' # average method (UPGMA)
+#' set.seed(1319)
+#' srs_havg<- repeated_spatial_cluster_sample(data = landcover, v = 2, repeats = 2,
+#'                            coords = NULL, spatial = TRUE, clust_method = "hclust",
+#'                            dist_clust = "average")
+#'
 #'
 #' \dontrun{
 #' data("landcover")
@@ -61,7 +90,6 @@
 #' rscv
 #' }
 #'
-
 
 repeated_spatial_cluster_sample <- function(data = data, v = 10, repeats = 1, coords = c("X", "Y"),
                                            strata = NULL, breaks = 4, pool = 0.1, spatial = FALSE,

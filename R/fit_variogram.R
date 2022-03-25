@@ -18,6 +18,25 @@
 #' @export
 #'
 #' @examples
+#' # Read data
+#' lcdat<- landcover
+#'
+#' # fit variogram
+#' avgm <- fit_variogram(data = lcdat,response = "ASYM",coords = NULL)
+#'
+#' # look at the range
+#'
+#' avgm$var_model
+#'
+#' # variogram with X,Y variable.
+#'
+#' df <- data.frame(sf::st_coordinates(lcdat))
+#' # drop geometry from the sf data
+#' lcdat <- sf::st_drop_geometry(lcdat)
+#' # cbind lcdata with coordinates
+#' ndat<- cbind(df, lcdat)
+#' # fit variogram
+#' asym_fit<- fit_variogram(data = ndat,response = "ASYM",coords = c("X", "Y"))
 #'
 #' \dontrun{
 #' data("landcover")
@@ -37,10 +56,14 @@
 #'
 #'
 #' @references
-#'\href{https://CRAN.R-project.org/package=automap}{automatp}: A index page for automap package on [CRAN](https://cran.r-project.org)
 #'
-#'  Hiemstra, P.H., Pebesma, E.J., Twenhofel, C.J.W. and G.B.M. Heuvelink, 2008. Real-time automatic interpolation of ambient gamma dose rates from
+#' Hiemstra, P.H., Pebesma, E.J., Twenhofel, C.J.W. and G.B.M. Heuvelink, 2008. Real-time automatic interpolation of ambient gamma dose rates from
 #'  the Dutch Radioactivity Monitoring Network. Computers & Geosciences.[DOI:](http://dx.doi.org/10.1016/j.cageo.2008.10.011)
+#'
+#' Pebesma, E.J., 2004. Multivariable geostatistics in S: the gstat package. Computers & Geosciences, 30: 683-691.
+#' Benedikt Gräler, Edzer Pebesma and Gerard Heuvelink, 2016. Spatio-Temporal Interpolation using gstat.  The R
+#' Journal 8(1), 204-218
+#'
 #'
 fit_variogram <- function(data, response, coords = c("X", "Y")) {
 
@@ -53,30 +76,27 @@ fit_variogram <- function(data, response, coords = c("X", "Y")) {
     if (tolower(user) %in% c("1", "yes", "y")) {
       utils::install.packages(pkname, lib = NULL)
     } else {
-      stop("please install required packages or set Spatial  = FALSE. ")
+      stop("please install required packages")
     }
     invisible(lapply(pkg, library, character.only = TRUE))
   }
   #----------------------------------------------------------------------------#
-  if (!is.null(coords)) {
-    coords <- tidyselect::eval_select(rlang::enquo(coords), data = data)
+  if(!is.null(coords)){
+    coords<- tidyselect::eval_select(rlang::enquo(coords), data = data)
   }
-  if ((!is.null(coords) && !methods::is(data, "sf")) || (!is.null(coords) && !methods::is(data, "SpatialPointsDataFrame"))) {
-    rlang::abort("either `coords` should be present as variables in `data`.\n Or data should be of a `sf` or `spatial` object")
+  if((is.null(coords) && !methods::is(data, "sf")) && (is.null(coords) && !methods::is(data, "SpatialPointsDataFrame"))){
+    rlang::abort("either `coords` should be present as variables in `data`.\n Or data should be in `sf` or `spatial` object")
   }
-  if (methods::is(data, "sf")) {
-    data <- sf::as_Spatial(data)
+  if(methods::is(data,"sf")){
+    data<- sf::as_Spatial(data)
   }
-  if (methods::is(data, "data.frame")) {
-    sp::coordinates(data) <- cbind(data[, coords[1]], data[, coords[2]])
-
-    data@data[, c("X", "Y")] <- NULL
-
-    fittedVar <- automap::autofitVariogram(data@data[[response]] ~ 1, data)
-
-  } else {
-
-  fittedVar <- automap::autofitVariogram(data@data[[response]] ~ 1, data)
+  if(methods::is(data, "data.frame")){
+    sp::coordinates(data)<- cbind(data[, coords[1]], data[, coords[2]])
+    data@data[, c("X", "Y")]<- NULL
+    # fittedVar <- automap::autofitVariogram(data@data[[response]]~1, data)
   }
+  else
+  data<- data
+  fittedVar <- automap::autofitVariogram(data@data[[response]]~1, data)
   return(fittedVar)
-} # fit variogram close
+} #function close

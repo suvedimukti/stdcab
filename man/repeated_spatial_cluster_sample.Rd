@@ -2,7 +2,7 @@
 % Please edit documentation in R/repeated_spatial_cluster_sample.R
 \name{repeated_spatial_cluster_sample}
 \alias{repeated_spatial_cluster_sample}
-\title{Repeated Spatial Cluster Cross-Validation}
+\title{Repeated Spatial Cluster Cross-Validation for Tidy Modeling}
 \usage{
 repeated_spatial_cluster_sample(
   data = data,
@@ -66,6 +66,30 @@ The variables in the `coords` argument, if input data is data.frame or extracted
 }
 \examples{
 
+### spatial repeated sampling
+data("landcover")
+
+## Using partitioning clustering
+set.seed(1318)
+
+srs<- repeated_spatial_cluster_sample(data = landcover,v = 2, repeats = 2,
+      coords = NULL,spatial = TRUE, clust_method = "kmeans",
+      dist_clust = NULL)
+srs
+## Hierarchical clustering
+set.seed(1318)
+
+srs_hw2<- repeated_spatial_cluster_sample(data = landcover,v = 2, repeats = 2,
+                        coords = NULL, spatial = TRUE, clust_method = "hclust",
+                        dist_clust = "ward.D2")
+
+# average method (UPGMA)
+set.seed(1319)
+srs_havg<- repeated_spatial_cluster_sample(data = landcover, v = 2, repeats = 2,
+                           coords = NULL, spatial = TRUE, clust_method = "hclust",
+                           dist_clust = "average")
+
+
 \dontrun{
 data("landcover")
 
@@ -78,6 +102,11 @@ rscv
 
 }
 \references{
+A. Brenning, "Spatial cross-validation and bootstrap for the assessment of
+prediction rules in remote sensing: The R package sperrorest," 2012 IEEE
+International Geoscience and Remote Sensing Symposium, Munich, 2012,
+pp. 5372-5375, doi: 10.1109/IGARSS.2012.6352393.
+
 Julia Silge (2021). spatialsample: Spatial Resampling Infrastructure. https://github.com/tidymodels/spatialsample,
 https://spatialsample.tidymodels.org.
 

@@ -1,4 +1,3 @@
-
 #' Multiple Variogram Fitting
 #'
 #' @description This function returns experimental and fitted variogram information for multiple variables.
@@ -25,6 +24,17 @@
 #' @export
 #'
 #' @examples
+#'
+#' ## Read data
+#' lcdat<- landcover
+#'
+#' # remove factor variable
+#'
+#' # lcdat$class_name <- NULL
+#'
+#' # fit variograms
+#'
+#' fmv<- multiple_variogram(data = lcdat,coords = NULL,length = 99 )
 #'
 #' \dontrun{
 #' data("landcover")

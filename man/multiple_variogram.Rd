@@ -27,6 +27,17 @@ For each variable \code{\link[automap]{autofitVariogram}} is used. The function 
 }
 \examples{
 
+## Read data
+lcdat<- landcover
+
+# remove factor variable
+
+# lcdat$class_name <- NULL
+
+# fit variograms
+
+fmv<- multiple_variogram(data = lcdat,coords = NULL,length = 99 )
+
 \dontrun{
 data("landcover")
 fit_multiple_variogram(data = landcover,coords = NULL, length = 99)
