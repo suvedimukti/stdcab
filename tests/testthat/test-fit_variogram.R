@@ -10,7 +10,7 @@ expect_s3_class(sp_sf, "data.frame", exact = FALSE)
 
 test_that("the size of the data",{
   expect_equal(nrow(sp_sf), 1922)
-  expect_equal(ncol(sp_sf), 43)
+  expect_equal(ncol(sp_sf), 33)
 })
 
 
@@ -21,8 +21,8 @@ sp_sf <- sf::st_drop_geometry(sp_sf)
 
 ndat<- cbind(df, sp_sf)
 
-asym_fit<- fit_variogram(data = ndat,response = "ASYM",coords = c("X", "Y"))
+asym_fit<- fit_variogram(data = ndat,response = "MPC1",coords = c("X", "Y"))
 
 test_that("check var_model and range",{
-  expect_equal(round(asym_fit$var_model[2,3],2), 1391.53)
+  expect_equal(round(asym_fit$var_model[2,3],2), 3468.04)
 })

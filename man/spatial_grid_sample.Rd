@@ -32,8 +32,8 @@ three options are valid: `default`, `random`, and `systematic`.}
 result is the list of `plot`, `sf` grid, and `tbl_df`, `tbl`, and `data.frame`
 }
 \description{
-Create the spatial rectangular grids. This function results is similar to `Generate Tesselation`
-tool in ESRI's ArcGIS software but only square or rectangle polygons are possible. The extent of the point coordinates is divided into number of
+Create the spatial rectangular grids. This function results is similar to `Generate Tessellation`
+tool in ESRI's ArcGIS software but only square or rectangle polygons are possible. The extent of the point coordinates is #' divided into number of
 possible grids based on the values of `cellsize`. The cellsize is the length and width of polygon to be created.
 }
 \details{
@@ -44,8 +44,8 @@ e.g. (80,1). The `default` selection  numbers the grids from bottom left and inc
 `random` selection assigns the grid number randomly. The `systematic` grid numbering happens from bottom
  right and column wise.
 
-   The `random` selection as its' name applies select grids randomly, and `systematic` selction option
-   allows to selects the grids sequentially up to `k`
+   The `random` selection as its' name applies select grids randomly, and `systematic` selection option
+   allows to select the grids sequentially up to `k`
 }
 \examples{
 

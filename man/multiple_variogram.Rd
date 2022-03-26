@@ -30,9 +30,9 @@ For each variable \code{\link[automap]{autofitVariogram}} is used. The function 
 ## Read data
 lcdat<- landcover
 
-# remove factor variable
+# subset data
 
-# lcdat$class_name <- NULL
+lcdat <- lcdat[, c("MBLU", "MNDVI", "MNIR", "MPC1", "MPC2", "MPC23", "MRED", "MSAVI")]
 
 # fit variograms
 

@@ -22,7 +22,7 @@
 #' lcdat<- landcover
 #'
 #' # fit variogram
-#' avgm <- fit_variogram(data = lcdat,response = "ASYM",coords = NULL)
+#' avgm <- fit_variogram(data = lcdat,response = "MPC1",coords = NULL)
 #'
 #' # look at the range
 #'
@@ -31,17 +31,23 @@
 #' # variogram with X,Y variable.
 #'
 #' df <- data.frame(sf::st_coordinates(lcdat))
+#'
 #' # drop geometry from the sf data
+#'
 #' lcdat <- sf::st_drop_geometry(lcdat)
+#'
 #' # cbind lcdata with coordinates
+#'
 #' ndat<- cbind(df, lcdat)
+#'
 #' # fit variogram
-#' asym_fit<- fit_variogram(data = ndat,response = "ASYM",coords = c("X", "Y"))
+#'
+#' asym_fit<- fit_variogram(data = ndat,response = "MPC1",coords = c("X", "Y"))
 #'
 #' \dontrun{
 #' data("landcover")
 #'
-#' vfit<- fit_variogram(data = landcover,response = "ASYM",coords = NULL)
+#' vfit<- fit_variogram(data = landcover,response = "MPC1",coords = NULL)
 #' vfit
 #' }
 #'

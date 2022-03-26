@@ -8,6 +8,7 @@
 #' @param length (integer) the length of sequence used to produced fitted data.
 #' @param showRange (logical) whether to display range in the plot
 #'
+#'
 #' @return A list with plot and tibble with semivariogram information
 #' @export
 #'

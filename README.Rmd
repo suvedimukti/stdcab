@@ -15,12 +15,10 @@ knitr::opts_chunk$set(
 
 # stdcab
 
-<!-- badges: start -->
 [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/suvedimukti/stdcab/master)
 [![CRAN status](https://www.r-pkg.org/badges/version/stdcab)](https://CRAN.R-project.org/package=stdcab)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Travis build status](https://travis-ci.com/suvedimukti/stdcab.svg?branch=master)](https://travis-ci.com/suvedimukti/stdcab)
-<!-- badges: end -->
+
 
 The goal of the **stdcab** package is to apply spatial thinning on multi-class spatial point data, spatial cluster analysis for random and repeated cross-validations which partitions data into training and testing set compatible to tidy-modeling resamples. The package allows to run semivariance analysis, plotting and spatial blocking of observations.
 
@@ -42,6 +40,7 @@ install.packages("stdcab")
 # load dataset
 library(stdcab)
 data(landcover)
+
 # create another dataset based on landcover data that comes with the packge
 #
 dspatial<- landcover

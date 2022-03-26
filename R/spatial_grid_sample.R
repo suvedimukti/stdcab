@@ -1,7 +1,7 @@
 #' Spatial Grid/Block Cross-Validation
 #'
-#' @description Create the spatial rectangular grids. This function results is similar to `Generate Tesselation`
-#' tool in ESRI's ArcGIS software but only square or rectangle polygons are possible. The extent of the point coordinates is divided into number of
+#' @description Create the spatial rectangular grids. This function results is similar to `Generate Tessellation`
+#' tool in ESRI's ArcGIS software but only square or rectangle polygons are possible. The extent of the point coordinates is #' divided into number of
 #' possible grids based on the values of `cellsize`. The cellsize is the length and width of polygon to be created.
 #'
 #'
@@ -13,6 +13,7 @@
 #' @param fold_selection an option to select observations within the grid(cellsize)
 #' three options are valid: `default`, `random`, and `systematic`.
 #' @param k (integer) the value defining the number of groups of grids out of total grids.
+#'
 #'
 #' @return
 #'  result is the list of `plot`, `sf` grid, and `tbl_df`, `tbl`, and `data.frame`
@@ -42,13 +43,13 @@
 #' `random` selection assigns the grid number randomly. The `systematic` grid numbering happens from bottom
 #'  right and column wise.
 #'
-#'    The `random` selection as its' name applies select grids randomly, and `systematic` selction option
-#'    allows to selects the grids sequentially up to `k`
+#'    The `random` selection as its' name applies select grids randomly, and `systematic` selection option
+#'    allows to select the grids sequentially up to `k`
 #'
 spatial_grid_sample <- function(data,
                                 cellsize = c(10000, 10000),
                                 offset = c(1000, 1000),
-                                show_grid = TRUE, fold_selection = "default", k=NULL) {
+                                show_grid = TRUE, fold_selection = "default", k = NULL) {
   #-------- make coords = c("x", "y)
   #-------- and sp to "sf"
   #------- install ggplot

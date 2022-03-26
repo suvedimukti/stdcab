@@ -1,8 +1,8 @@
 #' Spatial Cluster Cross-Validation for Tidy Modeling
 #'
 #' @description This is a wrapper function around \code{\link[spatialsample]{spatial_clustering_cv}}.
-#'  Spatial cluster sampling splits the data into V groups groups using partitioning (kmeans)/ hierarchical(hclust) clustering of some variables, typically
-#'  spatial coordinates. A resample of the analysis data consists of V-1 of the folds/clusters while the assessment set contains the final fold/cluster. In
+#'  Spatial cluster sampling splits a data into V groups groups using partitioning (kmeans)/ hierarchical(hclust) clustering of some variables, typically
+#'  spatial coordinates. A resample of a analysis data consists of V-1 of the folds/clusters while the assessment set contains the final fold/cluster. In
 #'  basic spatial cross-validation (i.e. no repeats), the number of resamples is equal to V.
 #'
 #' @details
@@ -10,8 +10,8 @@
 #'  the data into disjointed sets. These clusters are used as the folds for cross-validation. Depending on how the
 #'  data are distributed spatially.
 #'
-#'   Since this function heavily relies on "spatialresample" all the attributes class
-#' and attributes were not modified from. Infact, these information holds true in case of
+#'   Since this function heavily relies on "spatialsample" all the attributes class
+#' and attributes were not modified from. In fact, these information holds true in case of
 #' \code{\link{repeated_spatial_cluster_sample}}.
 #'
 #'
@@ -22,7 +22,7 @@
 #' @param clust_method one of partitioning (default = kmeans) or one of hierarchical methods(\code{\link[stats]{hclust}})
 #' @param dist_clust the agglomeration method to be used. This should be one of “ward.D”, “ward.D2”, “single”, “complete”,
 #'  “average” (= UPGMA), “mcquitty” (= WPGMA), “median” (= WPGMC) or “centroid” (= UPGMC).
-#'  the dist_clust in the funtion is method in stats::hclust
+#'  the dist_clust in the function is method in stats::hclust
 #'
 #' @param ... Extra arguments passed on to [stats::kmeans()] or [stats::hclust()]
 #'
@@ -212,13 +212,6 @@ spatial_clustering_splits_cv <- function(data, coords,clust_method = clust_metho
   }
 }
 
-# ##' @export
-# print.spatial_clustering_cv <- function(x, ...) {
-#   cat("# ", pretty(x), "\n")
-#   class(x) <- class(x)[!(class(x) %in% c("spatial_clustering_cv", "rset"))]
-#   print(x, ...)
-# }
-
 # ## Keep synced with rsample
 #
 names0 <- function(num, prefix = "x") {
@@ -248,20 +241,3 @@ split_unnamed <- function(x, f) {
   unname(out)
 }
 
-#
-# pretty.spatial_clustering_cv <- function(x, ...) {
-#   details <- attributes(x)
-#   res <- paste0(details$v, "-fold spatial cross-validation")
-#   res
-# }
-#
-# # coord<- data.frame(st_coordinates(data))
-# #
-# # dat<- cbind(data,coord[,1:2])
-# #
-# # st_geometry(data)<- NULL
-#
-#
-# #scv<- spatial_clustering_cv(data = dat,coords = c("X" , "Y"),v = 5)
-#
-# # make splits from rsample

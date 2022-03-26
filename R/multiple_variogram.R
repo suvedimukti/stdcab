@@ -9,6 +9,7 @@
 #' @param coords (vector) pair of coordinates if data type is aspatial
 #' @param length (integer) the length of sequence used to produced fitted data.
 #'
+#'
 #' @return
 #' A data frame with combined information from all variables as response is returned.
 #' The `data.frame` contains the experimental variogram information, the fitted variogram model information.
@@ -28,9 +29,9 @@
 #' ## Read data
 #' lcdat<- landcover
 #'
-#' # remove factor variable
+#' # subset data
 #'
-#' # lcdat$class_name <- NULL
+#' lcdat <- lcdat[, c("MBLU", "MNDVI", "MNIR", "MPC1", "MPC2", "MPC23", "MRED", "MSAVI")]
 #'
 #' # fit variograms
 #'

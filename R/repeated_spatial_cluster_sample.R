@@ -13,7 +13,7 @@
 #'  data are distributed spatially. The function is similar to repeated cross validation or v-fold cross validation \code{\link[rsample]{vfold_cv}}
 #'  but for spatial data with clustering.
 #'
-
+#'
 #' @param data data input data set one of sp, sf or data.frame with X and Y as variables
 #' @param v  number of partitions of the data set or number of clusters
 #' @param repeats number of repetitions of partition of data set
@@ -25,7 +25,7 @@
 #' @param clust_method one of partitioning (default = kmeans) or one of hierarchical methods(\code{\link[stats]{hclust}})
 #' @param dist_clust the agglomeration method to be used. This should be one of “ward.D”, “ward.D2”, “single”, “complete”,
 #'  “average” (= UPGMA), “mcquitty” (= WPGMA), “median” (= WPGMC) or “centroid” (= UPGMC).
-#'  the dist_clust in the funtion is method in stats::hclust
+#'  the dist_clust in the function is method in stats::hclust
 #' @param ... currently not used
 #'
 #'

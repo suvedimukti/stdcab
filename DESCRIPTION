@@ -8,17 +8,18 @@ Authors@R:
     role = c("aut", "cre"),
     email = "suvedimukti@gmail.com")
 Maintainer: Mukti Subedi <suvedimukti@gmail.com>
-Description: This package uses spatial point data for spatial thinning,  
-    Cluster analysis for random cross-validation and repeated-cross validation samples creation.
-    Spatial structure in the data accounted for using semivariance analysis and spatial blocking of observations.
-    Results from spatial clustering and blocking ready to be used in the tidy-modeling framework. 
+Description: Functions to spatial point data for spatial thinning,  
+    Cluster analysis for random cross-validation and repeated-cross validation samples creation, 
+    and spatial block cross validation. Spatial structure in the data accounted for using 
+    variogram and spatial blocking of observations.
+    Results from spatial clustering and blocking are ready to be used in the tidy-modeling framework. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
     dplyr, gstat, rsample,ggplot2,magrittr, methods,purrr,
-    rgdal, rlang, sp, tibble, tidyr, tidyselect, automap
+    rlang, sp, tibble, tidyr, tidyselect, automap
 Depends: 
     R (>= 2.10),
     sf

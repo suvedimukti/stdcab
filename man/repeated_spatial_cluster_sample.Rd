@@ -39,7 +39,7 @@ repeated_spatial_cluster_sample(
 
 \item{dist_clust}{the agglomeration method to be used. This should be one of “ward.D”, “ward.D2”, “single”, “complete”,
 “average” (= UPGMA), “mcquitty” (= WPGMA), “median” (= WPGMC) or “centroid” (= UPGMC).
-the dist_clust in the funtion is method in stats::hclust}
+the dist_clust in the function is method in stats::hclust}
 
 \item{...}{currently not used}
 }

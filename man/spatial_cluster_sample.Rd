@@ -27,7 +27,7 @@ spatial_cluster_sample(
 
 \item{dist_clust}{the agglomeration method to be used. This should be one of “ward.D”, “ward.D2”, “single”, “complete”,
 “average” (= UPGMA), “mcquitty” (= WPGMA), “median” (= WPGMC) or “centroid” (= UPGMC).
-the dist_clust in the funtion is method in stats::hclust}
+the dist_clust in the function is method in stats::hclust}
 
 \item{...}{Extra arguments passed on to [stats::kmeans()] or [stats::hclust()]}
 }
@@ -38,8 +38,8 @@ A tibble with classes `spatial_cv`, `rset`, `tbl_df`, `tbl`, and
 }
 \description{
 This is a wrapper function around \code{\link[spatialsample]{spatial_clustering_cv}}.
- Spatial cluster sampling splits the data into V groups groups using partitioning (kmeans)/ hierarchical(hclust) clustering of some variables, typically
- spatial coordinates. A resample of the analysis data consists of V-1 of the folds/clusters while the assessment set contains the final fold/cluster. In
+ Spatial cluster sampling splits a data into V groups groups using partitioning (kmeans)/ hierarchical(hclust) clustering of some variables, typically
+ spatial coordinates. A resample of a analysis data consists of V-1 of the folds/clusters while the assessment set contains the final fold/cluster. In
  basic spatial cross-validation (i.e. no repeats), the number of resamples is equal to V.
 }
 \details{
@@ -47,8 +47,8 @@ The variables in the `coords` argument, if input data is data.frame or extracted
  the data into disjointed sets. These clusters are used as the folds for cross-validation. Depending on how the
  data are distributed spatially.
 
-  Since this function heavily relies on "spatialresample" all the attributes class
-and attributes were not modified from. Infact, these information holds true in case of
+  Since this function heavily relies on "spatialsample" all the attributes class
+and attributes were not modified from. In fact, these information holds true in case of
 \code{\link{repeated_spatial_cluster_sample}}.
 }
 \examples{
