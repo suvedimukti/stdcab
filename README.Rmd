@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 # stdcab
-
+[![R-CMD-check](https://github.com/suvedimukti/stdcab/workflows/R-CMD-check/badge.svg)](https://github.com/suvedimukti/stdcab/actions)
 [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/suvedimukti/stdcab/master)
 [![CRAN status](https://www.r-pkg.org/badges/version/stdcab)](https://CRAN.R-project.org/package=stdcab)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)

@@ -3,6 +3,7 @@
 
 # stdcab
 
+[![R-CMD-check](https://github.com/suvedimukti/stdcab/workflows/R-CMD-check/badge.svg)](https://github.com/suvedimukti/stdcab/actions)
 [![Launch
 binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/suvedimukti/stdcab/master)
 [![CRAN
