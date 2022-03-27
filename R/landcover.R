@@ -2,7 +2,7 @@
 #' @description The land use land cover data were generated using heads-up (onscreen)
 #' digitization using National Agriculture Imagery Program (NAIP) digital
 #' orthoimagery data acquired in 2018.
-#' @format A data frame with 1922 rows and 43 variables:
+#' @format A data frame with 1922 rows and 32 variables:
 #' \describe{
 #'   \item{\code{MBLU}}{double mean Blue}
 #'   \item{\code{MDIS}}{double Mean Dissimilarity}

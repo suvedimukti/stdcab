@@ -19,7 +19,7 @@ LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
     dplyr, gstat, rsample,ggplot2,magrittr, methods,purrr,
-    rlang, sp, tibble, tidyr, tidyselect, automap
+    rlang, sp, tibble, tidyr, tidyselect, automap, spThin, spatialsample
 Depends: 
     R (>= 2.10),
     sf
