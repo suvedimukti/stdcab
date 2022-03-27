@@ -23,7 +23,27 @@ observations.
 You can install the released version of stdcab from
 [CRAN](https://cran.r-project.org) with:
 
-`{r install install.packages("stdcab")`
+``` {r
+install.packages("stdcab")
+```
+
+To install the latest stdcab version from
+[GitHub](https://github.com/)use:
+
+``` r
+remotes::install_github('suvedimukti/stdcab')
+#> Downloading GitHub repo suvedimukti/stdcab@HEAD
+#> 
+#> * checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpCwimAz\remotes49f07d9a77f0\suvedimukti-stdcab-9390027/DESCRIPTION' ... OK
+#> * preparing 'stdcab':
+#> * checking DESCRIPTION meta-information ... OK
+#> * checking for LF line-endings in source and make files and shell scripts
+#> * checking for empty or unneeded directories
+#> * building 'stdcab_0.1.0.tar.gz'
+#> 
+#> Installing package into 'C:/Users/suved/Documents/R/win-library/4.1'
+#> (as 'lib' is unspecified)
+```
 
 # Repeated Cluster CV: Rsample compatible
 

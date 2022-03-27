@@ -5,7 +5,7 @@
 \alias{landcover}
 \title{Land Use Land Cover (LULC) Data For Classification Problem}
 \format{
-A data frame with 1922 rows and 43 variables:
+A data frame with 1922 rows and 32 variables:
 \describe{
   \item{\code{MBLU}}{double mean Blue}
   \item{\code{MDIS}}{double Mean Dissimilarity}
