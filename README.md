@@ -6,8 +6,6 @@
 [![R-CMD-check](https://github.com/suvedimukti/stdcab/workflows/R-CMD-check/badge.svg)](https://github.com/suvedimukti/stdcab/actions)
 [![Launch
 binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/suvedimukti/stdcab/master)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/stdcab)](https://CRAN.R-project.org/package=stdcab)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
@@ -34,7 +32,7 @@ To install the latest stdcab version from
 remotes::install_github('suvedimukti/stdcab')
 #> Downloading GitHub repo suvedimukti/stdcab@HEAD
 #> 
-#> * checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpCwimAz\remotes49f07d9a77f0\suvedimukti-stdcab-9390027/DESCRIPTION' ... OK
+#> * checking for file 'C:\Users\suved\AppData\Local\Temp\Rtmp2zTEcs\remotes4ee8168424b5\suvedimukti-stdcab-9390027/DESCRIPTION' ... OK
 #> * preparing 'stdcab':
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts

@@ -152,7 +152,6 @@ ggplot(def,aes(X, Y, color = analysis)) +
 
 ```
 
-
 ## Hierarchical Clustering
 
 **spatial_cluster_sample** supports hierarchical clustering using `stats::hclust` function. Unlike, `kmeans` 
@@ -213,22 +212,4 @@ p_hclus<- ggplot(hdef,aes(X, Y, color = analysis)) +
 ```{r plotgif, eval=requireNamespace('gifski', quietly = TRUE), echo=FALSE, fig.height=8, fig.width=10}
 p_hclus
 ```
-# References @
 
-Julia Silge (2021). spatialsample: Spatial Resampling Infrastructure. https://github.com/tidymodels/spatialsample,
-  https://spatialsample.tidymodels.org.
-  
-Legendre, P., 1993. Spatial autocorrelation: problem or new paradigm? Ecology 74, 1659–1673.
-Legendre, P., Dale, M.R.T., Fortin, M.-J., Gurevitch, J., Hohn, M., Myers, D., 2002. The consequences of spatial structure for the design and analysis of ecological field surveys. Ecography 25, 601–615.
-
-Legendre, P., Fortin, M.J., 1989. Spatial pattern and ecological analysis.
-Miller, J., Franklin, J., Aspinall, R., 2007. Incorporating spatial dependence in predictive vegetation models. Ecol. Modell. 202, 225–242. https://doi.org/10.1016/j.ecolmodel.2006.12.012
-
-Miller, J.R., Turner, M.G., Smithwick, E.A.H., Dent, C.L., Stanley, E.H., 2004. Spatial extrapolation: the science of predicting ecological patterns and processes. BioScience 54, 310–320.
-
-Pebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R Journal 10 (1), 439-446,
-  https://doi.org/10.32614/RJ-2018-009
-  
-Tobler, W.R., 1970. A computer movie simulating urban growth in the Detroit region. Econ. Geogr. 46, 234–240. https://doi.org/https://doi.org/10.2307/143141
-
-@ not an exhaustive list of references
