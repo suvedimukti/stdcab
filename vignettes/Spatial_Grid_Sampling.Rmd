@@ -85,7 +85,7 @@ can be used as a leave-one-out cross validation.
 # make manual_rset object
 msplits<- rsample::manual_rset(splits = sp_grid$splits$splits, ids = sp_grid$splits$id)
 
-# convert to caert compatible format
+# convert to caret compatible format
 caret_train_test<- rsample::rsample2caret(msplits,c("analysis","assessment"))
 
 caret_train_test[1]$index$Fold01
