@@ -32,7 +32,7 @@ To install the latest stdcab version from
 remotes::install_github('suvedimukti/stdcab')
 #> Downloading GitHub repo suvedimukti/stdcab@HEAD
 #> 
-#> * checking for file 'C:\Users\suved\AppData\Local\Temp\Rtmp2zTEcs\remotes4ee8168424b5\suvedimukti-stdcab-9390027/DESCRIPTION' ... OK
+#> * checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpYHdnpX\remotesd244d754d7a\suvedimukti-stdcab-4d281bd/DESCRIPTION' ... OK
 #> * preparing 'stdcab':
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts

@@ -1,7 +1,7 @@
 Package: stdcab
 Type: Package
 Title: Spatial Thinning, Dependency, Clustering, and Blocking of Spatial Point Data for Classification Problems
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: 
     person(given = "Mukti", 
     family = "Subedi", 
