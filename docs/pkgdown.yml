@@ -1,0 +1,8 @@
+pandoc: 2.14.0.3
+pkgdown: 2.0.2
+pkgdown_sha: ~
+articles:
+  Spatial_Clustering: Spatial_Clustering.html
+  Spatial_Grid_Sampling: Spatial_Grid_Sampling.html
+last_built: 2022-03-27T09:53Z
+
