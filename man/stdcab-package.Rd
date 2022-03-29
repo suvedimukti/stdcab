@@ -6,7 +6,7 @@
 \alias{stdcab-package}
 \title{stdcab: Spatial Thinning, Dependency, Clustering, and Blocking of Spatial Point Data for Classification Problems}
 \description{
-Functions to spatial point data for spatial thinning, cluster analysis for random cross-validation and repeated-cross validation samples creation, and spatial block cross validation. Spatial structure in the data accounted for using variogram and spatial blocking of observations. Results from spatial clustering and blocking are ready to be used in the tidy-modeling framework.
+Functions to spatial point data for spatial thinning, clustering, blocking and structure analysis. Results from spatial clustering and blocking are resampling objects for machine learning using tidy modelling framework.
 }
 \seealso{
 Useful links:

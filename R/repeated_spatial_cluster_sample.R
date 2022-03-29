@@ -37,7 +37,7 @@
 #' For a single repeat, there will be one column called id that has a character string with the fold identifier.
 #' For repeats, id is the repeat number and an additional column called id2 that contains the fold information (within repeat).
 #'
-#'     The class and attributes information are same as defined in \code{\link[spatialsample]{spatial_clustering_cv}}.
+#'
 #'
 #' @references
 #'

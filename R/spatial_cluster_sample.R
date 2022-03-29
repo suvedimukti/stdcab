@@ -1,6 +1,6 @@
 #' Spatial Cluster Cross-Validation for Tidy Modeling
 #'
-#' @description This is a wrapper function around \code{\link[spatialsample]{spatial_clustering_cv}}.
+#' @description This is a wrapper function around spatial_clustering_cv from spatialsample.
 #'  Spatial cluster sampling splits a data into V groups groups using partitioning (kmeans)/ hierarchical(hclust) clustering of some variables, typically
 #'  spatial coordinates. A resample of a analysis data consists of V-1 of the folds/clusters while the assessment set contains the final fold/cluster. In
 #'  basic spatial cross-validation (i.e. no repeats), the number of resamples is equal to V.

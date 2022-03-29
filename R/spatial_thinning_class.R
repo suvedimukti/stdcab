@@ -1,6 +1,6 @@
 #' Spatial Thinning of Multi-class Point Data
 #'
-#' @description The function is a wrapper around spatial thinning \code{\link[spThin]{thin}} function from spThin package.
+#' @description The function is a wrapper around thin from spThin package.
 #'  It makes spatial thinning easy for multi-class input data set. This function is handy and flexible:
 #'  can support xy coordinates, spatialPoints, or simple features. It assumes that data are in projected
 #'  planar coordinates system; preferably Universal Transverse Mercator (UTM).
@@ -67,9 +67,6 @@
 #' distance = 10000, reps = 2, class = "Class_name")
 #' }
 #'
-#' @seealso \code{\link[spThin]{thin}}
-#'
-#'
 #'
 #'
 spatial_thinning_class <- function(data,
@@ -78,13 +75,7 @@ spatial_thinning_class <- function(data,
                                    distance,
                                    reps = 1,
                                    class = "class") {
-  ### random spatial thinning inspired from thin.algorithm from SpThin package.
-  ## most of the code is similar to that of original function, with modification
-  ## of distance calculation, and adapted for multi-class problem.
-  ## It returns the samples from the last reps if reps = 100, the value 100
-  ### will be used as the resultant frame.
-
-  if (!is.null(coords)) {
+   if (!is.null(coords)) {
     coords <- tidyselect::eval_select(rlang::enquo(coords), data = data)
     # spatial<- NULL
   }

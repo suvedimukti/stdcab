@@ -31,7 +31,7 @@ thinning will be applied based on specified distance}
 data.frame
 }
 \description{
-The function is a wrapper around spatial thinning \code{\link[spThin]{thin}} function from spThin package.
+The function is a wrapper around thin from spThin package.
  It makes spatial thinning easy for multi-class input data set. This function is handy and flexible:
  can support xy coordinates, spatialPoints, or simple features. It assumes that data are in projected
  planar coordinates system; preferably Universal Transverse Mercator (UTM).
@@ -77,12 +77,11 @@ spatial_thinning_class(data = landcover, spatial = TRUE, coords = NULL,
 distance = 10000, reps = 2, class = "Class_name")
 }
 
+
+
 }
 \references{
 Aiello-Lammens, M. E., Boria, R. A., Radosavljevic, A. , Vilela, B. and Anderson, R. P. (2015). spThin: an
 Rpackage for spatial thinning of species occurrence records for use in ecological niche models.
 Ecography, 38:541-545. URL https://onlinelibrary.wiley.com/doi/10.1111/ecog.01132.
-}
-\seealso{
-\code{\link[spThin]{thin}}
 }
