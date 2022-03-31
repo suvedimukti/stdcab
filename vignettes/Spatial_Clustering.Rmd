@@ -119,12 +119,23 @@ def$fold<- fold
 Now we have fold and training and testing data for each fold, we can visualize
 folds using ggplot2
 
+```{r checkpackage, message=TRUE, warning=FALSE}
+# check packages that are not installed
+# it threw error in debian system
+
+pkg<- c("ggplot2","animation","gganimate")
+
+pkg_check <- lapply(pkg, FUN = function(p) {
+  if (!require(p, character.only = TRUE)) {
+    install.packages(p, dependencies = TRUE)
+    library(p, character.only = TRUE)
+    }
+})
+
+
+```
+
 ```{r visualize,fig.width = 10, fig.height = 8, eval= FALSE}
-
-require(ggplot2)
-require(animation)
-require(gganimate)
-
 
 # remove coordinates to avoid cluttering
 
