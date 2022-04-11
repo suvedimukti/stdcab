@@ -1,34 +1,49 @@
-Package: stdcab
 Type: Package
-Title: Spatial Thinning, Dependency, Clustering, and Blocking of Spatial Point Data for Classification Problems
+Package: stdcab
+Title: Spatial Thinning, Dependency, Clustering, and Blocking of Spatial
+    Point Data for Classification Problems
 Version: 1.0.0
-Authors@R: 
-    person(given = "Mukti", 
-    family = "Subedi", 
-    role = c("aut", "cre"),
-    email = "suvedimukti@gmail.com")
+Authors@R: c(
+    person("Mukti", "Subedi", , email = "suvedimukti@gmail.com", role = c("aut", "cre")),
+    person("Julia", "Silge",  role = "aut"),
+    person("Edzer", "Pebesma", role = "aut"),
+    person("Paul",  "Hiemstra", role = "aut"))
 Maintainer: Mukti Subedi <suvedimukti@gmail.com>
-Description: Functions to spatial point data for spatial thinning, clustering, blocking and structure analysis.
-              Results from spatial clustering and blocking are resampling objects for machine learning using tidy modelling framework.
+Description: Functions to spatial point data for spatial thinning,
+    clustering, blocking and structure analysis.  Results from spatial
+    clustering and blocking are resampling objects for machine learning
+    using tidy modelling framework.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.1.2
-Imports: 
-    dplyr, gstat, rsample,ggplot2,magrittr, methods,purrr,
-    rlang, sp, tibble, tidyr, tidyselect, automap
-Depends: 
-    R (>= 2.10),
-    sf
 URL: https://github.com/suvedimukti/stdcab
 BugReports: https://github.com/suvedimukti/stdcab/issues
-Suggests: 
-    knitr,
-    rmarkdown,
+Depends:
+    R (>= 3.50)
+Imports:
+    automap,
+    dplyr,
+    ggplot2,
+    gstat,
+    magrittr,
+    methods,
+    purrr,
+    rlang,
+    rsample,
+    sf,
+    sp,
+    tibble,
+    tidyr,
+    tidyselect
+Suggests:
     animation,
     gganimate,
+    knitr,
+    rmarkdown,
     spelling,
     testthat (>= 3.0.0)
-Language: en-US
-VignetteBuilder: knitr
+VignetteBuilder: 
+    knitr
 Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+RoxygenNote: 7.1.2
