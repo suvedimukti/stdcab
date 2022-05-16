@@ -19,5 +19,12 @@ Useful links:
 \author{
 \strong{Maintainer}: Mukti Subedi \email{suvedimukti@gmail.com}
 
+Authors:
+\itemize{
+  \item Julia Silge
+  \item Edzer Pebesma
+  \item Paul Hiemstra
+}
+
 }
 \keyword{internal}
