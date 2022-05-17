@@ -20,7 +20,7 @@ the fitted variogram model and the sums of squares (sserr) between the sample va
 }
 \description{
 This function is a wrapper around \code{\link[automap]{autofitVariogram}}. The function runs a simple and ordinary
- krigging. For example, if the respose variable is `R` then the formula that will be supplied in the data is `R~1`.
+ krigging. For example, if the response variable is `R` then the formula that will be supplied in the data is `R~1`.
    Five experimental variogram models are tested automatically on selected response variable. The function supports
    spatial data in simple features (sf), SpatialPointsDataFrame(sp) or data.frame. The later format requires X, and Y as variables in the data.frame.
 }

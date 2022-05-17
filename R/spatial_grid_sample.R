@@ -55,7 +55,7 @@ spatial_grid_sample <- function(data,
   #------- install ggplot
   if (show_grid) {
     # check for availability of ggplot2
-    pkg <- c("ggplot2", "sf", "rlang")
+    pkg <- c("ggplot2", 'Rcpp', "sf", "rlang")
     pkgna <- names(which(sapply(sapply(pkg, find.package, quiet = TRUE), length) == 0))
     #---------------------------#
     if (length(pkgna) > 0) {
