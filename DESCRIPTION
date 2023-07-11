@@ -36,4 +36,5 @@ Imports:
 Depends: 
     R (>= 2.10)
 LazyData: true
-
+URL: https://github.com/suvedimukti/stdcab
+BugReports: https://github.com/suvedimukti/stdcab/issues
