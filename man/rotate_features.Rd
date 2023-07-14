@@ -4,7 +4,7 @@
 \alias{rotate_features}
 \title{Rotate Features}
 \usage{
-rotate_features(input_sf, rotation_angle = 45, rotation_base = "center")
+rotate_features(input_sf, rotation_angle = NULL, rotation_base = "center")
 }
 \arguments{
 \item{input_sf}{The input spatial object to be rotated.

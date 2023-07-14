@@ -38,3 +38,7 @@ Depends:
 LazyData: true
 URL: https://github.com/suvedimukti/stdcab
 BugReports: https://github.com/suvedimukti/stdcab/issues
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

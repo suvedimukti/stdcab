@@ -28,7 +28,7 @@
 #'
 #' @export
 #------------------------------------------------------------------------------#
-rotate_features <- function(input_sf, rotation_angle = 45,
+rotate_features <- function(input_sf, rotation_angle = NULL,
                             rotation_base = "center") {
   # Define rotation matrix
   rotation_matrix <- \(rotation_angle){
@@ -59,21 +59,25 @@ rotate_features <- function(input_sf, rotation_angle = 45,
 
   #----------------------------------------------------------------------------#
   if (!is.null(rotation_base) || (rotation_base == "center") ||
-      rotation_base == "center" && class(sf::st_geometry(input_sf)[[1]])[2] == "POINT") {
+    rotation_base == "center" && class(sf::st_geometry(input_sf)[[1]])[2] == "POINT") {
     rotation_base <- sf::st_centroid(input_sf_geom)
     input_sf_geom <- sf::st_geometry(input_sf)
     input_fields <- sf::st_drop_geometry(input_sf)
   } else {
-    input_sf_geom <- sf::st_geometry(input_sf)
-    input_fields <- sf::st_drop_geometry(input_sf)
+  input_sf_geom <- sf::st_geometry(input_sf)
+  input_fields <- sf::st_drop_geometry(input_sf)
   }
+  if(!is.null(rotation_angle)){
   rotated_geom <- (input_sf_geom - rotation_base) * rotation_matrix(rotation_angle) + rotation_base
   rotated_geom_fields <- cbind(input_fields, rotated_geom)
   rotated_geom_sf <- sf::st_as_sf(rotated_geom_fields, crs = sf::st_crs(input_sf))
-
   return_list <- list()
-
   return_list[["rotation_base"]] <- rotation_base
   return_list[["rotated_geom"]] <- rotated_geom_sf
   return(return_list)
+  }else{
+
+    return(input_sf)
+
+  }
 }

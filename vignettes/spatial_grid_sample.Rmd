@@ -1,0 +1,106 @@
+---
+title: "Spatial Gridding/Blocking of Point Data for Machine Learning Using Tidymodeling"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Spatial Gridding/Blocking of Point Data for Machine Learning Using Tidymodeling}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(stdcab)
+```
+
+# Introduction
+
+In spatial analysis, creating regular polygons within a specific geographic data extent is a common task. This process is often employed to establish uniform, equally-sized grids, which can be advantageous for tasks such as uniform sampling or retroactive random selection.
+
+Spatial tessellation, also known as grid splitting, divides the extent into a series of sub-extents. These sub-extents are subsequently used to summarize the relevant information contained within them. In the context of classification, dividing the extent of the training data or study area into sub-extents or sub-units helps reduce the spatial structures present in the data. This allows for more efficient analysis and interpretation. For instance, one can summarize information within a sub-extent, such as the frequency of criminal activities across counties or the number of trees in each 10 km grid.
+
+Determining the appropriate size for these sub-units or sub-extents can be achieved through semi-variogram analysis. The aim is to maximize the heterogeneity between the blocks, ensuring that the resulting spatial grids capture meaningful spatial variations. This concept of spatial grids bears some resemblance to randomized control design in several aspects.
+
+The function `spatial_grid_sample` is similar to generate tessellations or create Fishnet tool in ArcGIS Pro or 
+ArcGIS desktop software from Environmental System Research Institute (ESRI). This function only supports rectangles or squares.
+The width and height information can be obtained from running `fit_variogram` or `multiple_variogram` functions. 
+
+
+# Create spatial grid of 10km by 10km
+
+To create the spatial grids the unit should be in the projection system, preferably in Universal 
+Transverse Mercator or State Plane System. The function also allows to specify if groups of sub-grids needs to be selected as in the case of k-fold cross validation. For selection of sub-grids.
+
+This version also allows users to define rotation of point data. This should handle directional gradient
+in the input data. 
+
+```{r gengrids, fig.height=8, fig.width=8}
+data(landcover)
+
+sp_grid <- spatial_quadgrid_sample(
+  data = landcover, cellsize = c(10000, 10000),
+  show_grid = TRUE, fold_selection = "default",rotation_angle = -12
+)
+
+```
+
+The `default` option ignores the value of `k` while splitting in the data, 
+however expect the value. Other options are `random` selections of 
+sub-grids into `k` groups, or `systematic` selection. 
+
+If `show_grid` option is NULL, the the output will not have a grid-map. 
+However, saves created grids and observations within each grid. 
+
+
+```{r plotting_es, fig.height=8, fig.width=8}
+#-----------------------#
+sblock <- sp_grid$blocks
+
+gp2 <- ggplot2::ggplot() +
+  ggplot2::geom_sf(
+    data = sblock, color = "blue",
+    fill = "maroon2", 
+    alpha = 0.04,
+    size = 0.7
+  )
+gp2
+```
+
+
+# Spatial grid resamples for Tidy-modeling
+
+The final output from the data is the `splits` tibble. With a default methods, resultant grids
+can be used as a `leave-one-out` cross validation. 
+
+```{r rsplit, paged.print=TRUE}
+# Create spatial grid of 10km by 10km
+# make manual_rset object
+msplits <- rsample::manual_rset(splits = sp_grid$splits$splits, ids = sp_grid$splits$id)
+
+# convert to caret compatible format
+caret_train_test <- rsample::rsample2caret(msplits, c("analysis", "assessment"))
+
+caret_train_test[1]$index$Fold01
+
+```
+
+In the above example, total 47 grids of 10km width are returned. Returns data are which are `rsample` compatible. 
+In case these information needs to be transferred to `caret` compatible format, this can be easily accomplished using `rsample2caret`function.
+
+
+
+# References @
+Legendre, P., 1993. Spatial autocorrelation: problem or new paradigm? Ecology 74, 1659–1673.
+Legendre, P., Dale, M.R.T., Fortin, M.-J., Gurevitch, J., Hohn, M., Myers, D., 2002. The consequences of spatial structure for the design and analysis of ecological field surveys. Ecography 25, 601–615.
+
+Legendre, P., Fortin, M.J., 1989. Spatial pattern and ecological analysis.
+Miller, J., Franklin, J., Aspinall, R., 2007. Incorporating spatial dependence in predictive vegetation models. Ecol. Modell. 202, 225–242. https://doi.org/10.1016/j.ecolmodel.2006.12.012
+
+Miller, J.R., Turner, M.G., Smithwick, E.A.H., Dent, C.L., Stanley, E.H., 2004. Spatial extrapolation: the science of predicting ecological patterns and processes. BioScience 54, 310–320.
+
+@ not an exhaustive list of references

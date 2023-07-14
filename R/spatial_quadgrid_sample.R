@@ -183,10 +183,15 @@ spatial_quadgrid_sample <- function(data,
     )
   }
   #----------------------------------------------------------------------------#
+ if(!is.null(rotation_angle)){
   input_grid_geom <- st_geometry(grd)
   rotated_grid <- (input_grid_geom - rotation_base) * rotation_matrix(rotation_angle) + rotation_base
+  rot_grid_sf <- sf::st_as_sf(rotated_grid, crs = sf::st_crs(data))
+ }else
+   rot_grid_sf <- sf::st_as_sf(grd, crs = sf::st_crs(data))
+
   #----------------------------------------------------------------------------#
-  rot_grid_sf <- sf::st_as_sf(rotated_grid, crs = st_crs(data))
+
 
   # rot_with_blck <- cbind(rot_grid_sf, st_drop_geometry(input_grid))
   # rot_with_inter <- st_intersects(input_sf,rot_with_blck)

@@ -1,0 +1,116 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# stdcab
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/suvedimukti/stdcab/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/suvedimukti/stdcab/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+The goal of the **stdcab** package is to apply spatial thinning on multi-class spatial point data, spatial cluster analysis for random and repeated cross-validations which partitions data into training and testing set compatible to tidy-modeling resamples. The package allows to run semivariance analysis, plotting and spatial blocking of observations.
+
+# Installation
+
+You can install the released version of stdcab from [CRAN](https://cran.r-project.org) with:
+
+``` {r 
+install.packages("stdcab")
+```
+
+To install the latest stdcab version from [GitHub](https://github.com/)use:
+
+```{r gitinstall}
+remotes::install_github('suvedimukti/stdcab')
+```
+ Repeated Cluster CV: Rsample compatible
+
+ This function is extended based on `spatial_cluster_sample`, which is a wrapper around `spatial_clustering_cv` function of **sptialsample** package.
+ 
+##  Load dataset
+
+```{r example}
+# load dataset
+library(stdcab)
+data(landcover)
+
+# create another dataset based on landcover data that comes with the package
+#
+dspatial <- landcover
+
+# examine data
+head(dspatial)
+
+# Class_name is the dependent (response ) data with seven classes (1 through  7)
+```
+
+## Visualize the data 
+
+```{r datavis}
+# load ggplot 2 for visualization
+library(ggplot2)
+ggplot(data = dspatial)+
+  geom_sf(aes(colour = factor(Class_name)), size = 1.5, alpha = 0.8)+
+  scale_colour_viridis_d()+
+  labs(color = "Land Cover Class")+
+  theme_bw(12)
+```
+
+## Apply repeated cluster sampling on sf data
+
+To make visualization easy lets make five folds and five repeats resulting 25
+splits of data based on **kmeans** clustering. 
+
+```{r repsamp}
+# setting seeds
+set.seed(1318)
+
+spc_rcv <- repeated_spatial_cluster_sample(data = dspatial, v = 5, repeats = 5,
+                            coords = NULL, spatial = TRUE, clust_method = "kmeans", 
+                            dist_clust = NULL)
+
+spc_rcv
+
+
+```
+
+## Visualize clusters 
+
+Following chunk of code is a function to run each split at a time to visualize 
+`Analysis\Training` and `Assessment\Testing` set in each fold and repeats.
+
+```{r clusvis1}
+library(magrittr) # 
+fplot_splits <- function(split) {
+  gp <- analysis(split) %>%
+   dplyr::mutate(analysis = "Training") %>%
+   dplyr::bind_rows(assessment(split) %>%
+   dplyr::mutate(analysis = "Testing")) %>%
+    ggplot(aes(X, Y, color = analysis)) +
+    geom_point(alpha = 0.7, size = 2) +
+    coord_fixed() +
+    labs(color = "Train/Test") +
+    scale_color_viridis_d(direction = -1) +
+    xlab("Longitude (m)") +
+    ylab("Latitidue (m)")
+  print(gp)
+}
+```
+
+## Plotting 
+```{r hclust_plot1, echo = TRUE,  animation.hook='gifski', eval = requireNamespace('gifski', quietly = TRUE)}
+# plot using walk function from purrr package
+# this requires gifski pacakge
+purrr::walk(spc_rcv$splits, fplot_splits)
+```
