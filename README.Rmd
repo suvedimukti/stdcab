@@ -111,6 +111,6 @@ fplot_splits <- function(split) {
 ## Plotting 
 ```{r hclust_plot1, echo = TRUE,  animation.hook='gifski', eval = requireNamespace('gifski', quietly = TRUE)}
 # plot using walk function from purrr package
-# this requires gifski pacakge
+# this requires gifski package
 purrr::walk(spc_rcv$splits, fplot_splits)
 ```

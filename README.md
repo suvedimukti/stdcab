@@ -33,7 +33,7 @@ remotes::install_github('suvedimukti/stdcab')
 #> sf    (1.0-13 -> 1.0-14) [CRAN]
 #> stars (0.6-1  -> 0.6-2 ) [CRAN]
 #> Installing 4 packages: vctrs, Rcpp, sf, stars
-#> Installing packages into 'C:/Users/suved/AppData/Local/Temp/RtmpmQoJwU/temp_libpath36f81f36a90'
+#> Installing packages into 'C:/Users/suved/AppData/Local/Temp/RtmpmQoJwU/temp_libpath36f8bf3e1a'
 #> (as 'lib' is unspecified)
 #> 
 #>   There is a binary version available but the source version is later:
@@ -45,18 +45,18 @@ remotes::install_github('suvedimukti/stdcab')
 #> package 'sf' successfully unpacked and MD5 sums checked
 #> 
 #> The downloaded binary packages are in
-#>  C:\Users\suved\AppData\Local\Temp\RtmpkdJ7FX\downloaded_packages
+#>  C:\Users\suved\AppData\Local\Temp\Rtmp4edb34\downloaded_packages
 #> installing the source package 'stars'
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpkdJ7FX\remotes3648338358f4\suvedimukti-stdcab-066d974/DESCRIPTION' ...  ✔  checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpkdJ7FX\remotes3648338358f4\suvedimukti-stdcab-066d974/DESCRIPTION'
+#>          checking for file 'C:\Users\suved\AppData\Local\Temp\Rtmp4edb34\remotes27e416f92610\suvedimukti-stdcab-b311b40/DESCRIPTION' ...  ✔  checking for file 'C:\Users\suved\AppData\Local\Temp\Rtmp4edb34\remotes27e416f92610\suvedimukti-stdcab-b311b40/DESCRIPTION'
 #>       ─  preparing 'stdcab':
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
-#>       ─  checking for empty or unneeded directories
+#>   ─  checking for empty or unneeded directories
 #>       ─  building 'stdcab_1.1.0.tar.gz'
 #>      
 #> 
-#> Installing package into 'C:/Users/suved/AppData/Local/Temp/RtmpmQoJwU/temp_libpath36f81f36a90'
+#> Installing package into 'C:/Users/suved/AppData/Local/Temp/RtmpmQoJwU/temp_libpath36f8bf3e1a'
 #> (as 'lib' is unspecified)
 ```
 
@@ -211,7 +211,7 @@ fplot_splits <- function(split) {
 
 ``` r
 # plot using walk function from purrr package
-# this requires gifski pacakge
+# this requires gifski package
 purrr::walk(spc_rcv$splits, fplot_splits)
 ```
 
