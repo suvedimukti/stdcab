@@ -22,8 +22,8 @@ You can install the released version of stdcab from
 
 `{r  install.packages("stdcab")`
 
-To install the latest stdcab version from
-[GitHub](https://github.com/)use:
+To install the latest stdcab version from [GitHub](https://github.com/)
+use:
 
 ``` r
 remotes::install_github('suvedimukti/stdcab')
@@ -33,7 +33,7 @@ remotes::install_github('suvedimukti/stdcab')
 #> sf    (1.0-13 -> 1.0-14) [CRAN]
 #> stars (0.6-1  -> 0.6-2 ) [CRAN]
 #> Installing 4 packages: vctrs, Rcpp, sf, stars
-#> Installing packages into 'C:/Users/suved/AppData/Local/Temp/RtmpmQoJwU/temp_libpath36f8bf3e1a'
+#> Installing packages into 'C:/Users/suved/AppData/Local/Temp/RtmpeYgWM9/temp_libpath2af862667af1'
 #> (as 'lib' is unspecified)
 #> 
 #>   There is a binary version available but the source version is later:
@@ -45,10 +45,10 @@ remotes::install_github('suvedimukti/stdcab')
 #> package 'sf' successfully unpacked and MD5 sums checked
 #> 
 #> The downloaded binary packages are in
-#>  C:\Users\suved\AppData\Local\Temp\Rtmp4edb34\downloaded_packages
+#>  C:\Users\suved\AppData\Local\Temp\RtmpsNYEcT\downloaded_packages
 #> installing the source package 'stars'
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\suved\AppData\Local\Temp\Rtmp4edb34\remotes27e416f92610\suvedimukti-stdcab-b311b40/DESCRIPTION' ...  ✔  checking for file 'C:\Users\suved\AppData\Local\Temp\Rtmp4edb34\remotes27e416f92610\suvedimukti-stdcab-b311b40/DESCRIPTION'
+#>          checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpsNYEcT\remotes3bdc61e82386\suvedimukti-stdcab-2f4af41/DESCRIPTION' ...  ✔  checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpsNYEcT\remotes3bdc61e82386\suvedimukti-stdcab-2f4af41/DESCRIPTION'
 #>       ─  preparing 'stdcab':
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
@@ -56,11 +56,11 @@ remotes::install_github('suvedimukti/stdcab')
 #>       ─  building 'stdcab_1.1.0.tar.gz'
 #>      
 #> 
-#> Installing package into 'C:/Users/suved/AppData/Local/Temp/RtmpmQoJwU/temp_libpath36f8bf3e1a'
+#> Installing package into 'C:/Users/suved/AppData/Local/Temp/RtmpeYgWM9/temp_libpath2af862667af1'
 #> (as 'lib' is unspecified)
 ```
 
-Repeated Cluster CV: Rsample compatible
+Repeated Cluster CV: `sample` compatible
 
 This function is extended based on `spatial_cluster_sample`, which is a
 wrapper around `spatial_clustering_cv` function of **sptialsample**

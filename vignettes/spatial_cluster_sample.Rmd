@@ -125,7 +125,7 @@ folds using ggplot2
 # check packages that are not installed
 # it threw error in debian system
 
-pkg <- c("ggplot2", "animation", "gganimate")
+pkg <- c("ggplot2", "gganimate")
 
 pkg_check <- lapply(pkg, FUN = function(p) {
   if (!require(p, character.only = TRUE)) {
@@ -222,7 +222,7 @@ p_hclus <- ggplot(hdef, aes(X, Y, color = analysis)) +
       "Location {previous_state}"
   ) +
   theme(plot.title = element_text(hjust = 0.5)) +
-  transition_states(
+  gganimate::transition_states(
     states = fold,
     transition_length = 4,
     state_length = 4

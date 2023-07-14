@@ -39,6 +39,8 @@ LazyData: true
 URL: https://github.com/suvedimukti/stdcab
 BugReports: https://github.com/suvedimukti/stdcab/issues
 Suggests: 
+    gganimate,
+    gifski,
     knitr,
     rmarkdown
 VignetteBuilder: knitr

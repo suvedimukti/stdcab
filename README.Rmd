@@ -29,12 +29,12 @@ You can install the released version of stdcab from [CRAN](https://cran.r-projec
 install.packages("stdcab")
 ```
 
-To install the latest stdcab version from [GitHub](https://github.com/)use:
+To install the latest stdcab version from [GitHub](https://github.com/) use:
 
 ```{r gitinstall}
 remotes::install_github('suvedimukti/stdcab')
 ```
- Repeated Cluster CV: Rsample compatible
+ Repeated Cluster CV: `sample` compatible
 
  This function is extended based on `spatial_cluster_sample`, which is a wrapper around `spatial_clustering_cv` function of **sptialsample** package.
  
