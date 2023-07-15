@@ -16,15 +16,4 @@ Useful links:
 }
 
 }
-\author{
-\strong{Maintainer}: Mukti Subedi \email{suvedimukti@gmail.com} (\href{https://orcid.org/0000-0003-4167-0206}{ORCID})
-
-Authors:
-\itemize{
-  \item Julia Silge
-  \item Edzer Pebesma
-  \item Paul Hiemstra
-}
-
-}
 \keyword{internal}
