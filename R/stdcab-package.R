@@ -12,7 +12,5 @@ NULL
 #' using tidy modelling framework.
 #' @author
 #' Mukti Subedi
-#' Julia Silge
-#' Edzer Pebesma
-#' Paul Hiemstra
+
 

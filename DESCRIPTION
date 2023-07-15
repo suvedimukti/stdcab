@@ -1,22 +1,17 @@
 Package: stdcab
 Title: Spatial Thinning, Dependency, Clustering, And Blocking of Point Data 
     for Classification Problems
-Version: 1.1.0
+Version: 0.1.0
+Authors@R: 
+    person("Mukti", "Subedi", , "suvedimukti@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0003-4167-0206"))
 Description: Functions to spatial point data for spatial thinning,
     clustering, blocking and structure analysis.  Results from spatial
     clustering and blocking are resampling objects for machine learning
     using tidy modelling framework.
-Authors@R: c(
-    person("Mukti", "Subedi", , "suvedimukti@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "https://orcid.org/0000-0003-4167-0206")),
-    person("Julia", "Silge", role = "aut"),
-    person("Edzer", "Pebesma", role = "aut"),
-    person("Paul", "Hiemstra", role = "aut")
-  )
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
 Imports: 
     automap,
     cluster,
