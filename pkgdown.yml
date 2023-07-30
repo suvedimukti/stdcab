@@ -1,0 +1,11 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  spatial_cluster_sample: spatial_cluster_sample.html
+  spatial_grid_sample: spatial_grid_sample.html
+last_built: 2023-07-30T01:05Z
+urls:
+  reference: https://suvedimukti.github.io/stdcab/reference
+  article: https://suvedimukti.github.io/stdcab/articles
+
