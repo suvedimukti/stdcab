@@ -12,8 +12,13 @@ Functions to spatial point data for spatial thinning, clustering, blocking and s
 Useful links:
 \itemize{
   \item \url{https://github.com/suvedimukti/stdcab}
+  \item \url{https://suvedimukti.github.io/stdcab/}
   \item Report bugs at \url{https://github.com/suvedimukti/stdcab/issues}
 }
+
+}
+\author{
+\strong{Maintainer}: Mukti Subedi \email{suvedimukti@gmail.com} (\href{https://orcid.org/0000-0003-4167-0206}{ORCID})
 
 }
 \keyword{internal}

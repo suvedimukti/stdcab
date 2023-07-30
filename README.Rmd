@@ -3,7 +3,7 @@ output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
+<img src="man/figures/logo.gif" align="right" />
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -34,7 +34,7 @@ To install the latest stdcab version from [GitHub](https://github.com/) use:
 ```{r gitinstall}
 remotes::install_github('suvedimukti/stdcab')
 ```
- Repeated Cluster CV: `sample` compatible
+ Repeated Cluster CV: `rsample` compatible
 
  This function is extended based on `spatial_cluster_sample`, which is a wrapper around `spatial_clustering_cv` function of **sptialsample** package.
  
@@ -43,6 +43,7 @@ remotes::install_github('suvedimukti/stdcab')
 ```{r example}
 # load dataset
 library(stdcab)
+
 data(landcover)
 
 # create another dataset based on landcover data that comes with the package

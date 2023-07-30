@@ -31,7 +31,7 @@ Imports:
 Depends: 
     R (>= 2.10)
 LazyData: true
-URL: https://github.com/suvedimukti/stdcab
+URL: https://github.com/suvedimukti/stdcab, https://suvedimukti.github.io/stdcab/
 BugReports: https://github.com/suvedimukti/stdcab/issues
 Suggests: 
     gganimate,
@@ -39,3 +39,4 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+RoxygenNote: 7.2.3
