@@ -87,71 +87,17 @@
 <h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h1>
 <p>You can install the released version of stdcab from <a href="https://cran.r-project.org" class="external-link">CRAN</a> with:</p>
-<p><code>{r  install.packages("stdcab")</code></p>
-<p>To install the latest stdcab version from <a href="https://github.com/" class="external-link">GitHub</a> use:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'suvedimukti/stdcab'</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Downloading GitHub repo suvedimukti/stdcab@HEAD</span></span>
-<span><span class="co">#&gt; vctrs   (0.6.2        -&gt; 0.6.3       ) [CRAN]</span></span>
-<span><span class="co">#&gt; cpp11   (0.4.4        -&gt; 0.4.5       ) [CRAN]</span></span>
-<span><span class="co">#&gt; ggplot2 (2a7ca74e2... -&gt; 1f27ffec3...) [GitHub]</span></span>
-<span><span class="co">#&gt; Installing 2 packages: vctrs, cpp11</span></span>
-<span><span class="co">#&gt; Installing packages into 'C:/Users/suved/AppData/Local/R/win-library/4.3'</span></span>
-<span><span class="co">#&gt; (as 'lib' is unspecified)</span></span>
-<span><span class="co">#&gt; package 'vctrs' successfully unpacked and MD5 sums checked</span></span>
-<span><span class="co">#&gt; Warning: cannot remove prior installation of package 'vctrs'</span></span>
-<span><span class="co">#&gt; Warning in file.copy(savedcopy, lib, recursive = TRUE): problem copying</span></span>
-<span><span class="co">#&gt; C:\Users\suved\AppData\Local\R\win-library\4.3\00LOCK\vctrs\libs\x64\vctrs.dll</span></span>
-<span><span class="co">#&gt; to C:\Users\suved\AppData\Local\R\win-library\4.3\vctrs\libs\x64\vctrs.dll:</span></span>
-<span><span class="co">#&gt; Permission denied</span></span>
-<span><span class="co">#&gt; Warning: restored 'vctrs'</span></span>
-<span><span class="co">#&gt; package 'cpp11' successfully unpacked and MD5 sums checked</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\downloaded_packages</span></span>
-<span><span class="co">#&gt; Downloading GitHub repo tidyverse/ggplot2@HEAD</span></span>
-<span><span class="co">#&gt; vctrs (0.6.2 -&gt; 0.6.3) [CRAN]</span></span>
-<span><span class="co">#&gt; Installing 1 packages: vctrs</span></span>
-<span><span class="co">#&gt; Installing package into 'C:/Users/suved/AppData/Local/R/win-library/4.3'</span></span>
-<span><span class="co">#&gt; (as 'lib' is unspecified)</span></span>
-<span><span class="co">#&gt; package 'vctrs' successfully unpacked and MD5 sums checked</span></span>
-<span><span class="co">#&gt; Warning: cannot remove prior installation of package 'vctrs'</span></span>
-<span><span class="co">#&gt; Warning in file.copy(savedcopy, lib, recursive = TRUE): problem copying</span></span>
-<span><span class="co">#&gt; C:\Users\suved\AppData\Local\R\win-library\4.3\00LOCK\vctrs\libs\x64\vctrs.dll</span></span>
-<span><span class="co">#&gt; to C:\Users\suved\AppData\Local\R\win-library\4.3\vctrs\libs\x64\vctrs.dll:</span></span>
-<span><span class="co">#&gt; Permission denied</span></span>
-<span><span class="co">#&gt; Warning: restored 'vctrs'</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\downloaded_packages</span></span>
-<span><span class="co">#&gt; ── R CMD build ─────────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt;          checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25801e406f7c\tidyverse-ggplot2-1f27ffe/DESCRIPTION' ...     checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25801e406f7c\tidyverse-ggplot2-1f27ffe/DESCRIPTION' ...   ✔  checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25801e406f7c\tidyverse-ggplot2-1f27ffe/DESCRIPTION' (437ms)</span></span>
-<span><span class="co">#&gt;       ─  preparing 'ggplot2': (16.1s)</span></span>
-<span><span class="co">#&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information</span></span>
-<span><span class="co">#&gt;       ─  checking for LF line-endings in source and make files and shell scripts (1s)</span></span>
-<span><span class="co">#&gt;       ─  checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt;       ─  building 'ggplot2_3.4.2.9000.tar.gz'</span></span>
-<span><span class="co">#&gt;      </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Installing package into 'C:/Users/suved/AppData/Local/R/win-library/4.3'</span></span>
-<span><span class="co">#&gt; (as 'lib' is unspecified)</span></span>
-<span><span class="co">#&gt; ── R CMD build ─────────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt;          checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25804e99304b\suvedimukti-stdcab-e0bbf4b/DESCRIPTION' ...     checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25804e99304b\suvedimukti-stdcab-e0bbf4b/DESCRIPTION' ...   ✔  checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25804e99304b\suvedimukti-stdcab-e0bbf4b/DESCRIPTION' (518ms)</span></span>
-<span><span class="co">#&gt;       ─  preparing 'stdcab': (524ms)</span></span>
-<span><span class="co">#&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information</span></span>
-<span><span class="co">#&gt;       ─  checking for LF line-endings in source and make files and shell scripts</span></span>
-<span><span class="co">#&gt;   ─  checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt;       ─  building 'stdcab_0.1.0.tar.gz'</span></span>
-<span><span class="co">#&gt;      </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Installing package into 'C:/Users/suved/AppData/Local/R/win-library/4.3'</span></span>
-<span><span class="co">#&gt; (as 'lib' is unspecified)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"stdcab"</span><span class="op">)</span></span></code></pre></div>
+<p>To install the latest stdcab version from <a href="https://github.com/" class="external-link">GitHub</a> use:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'suvedimukti/stdcab'</span><span class="op">)</span></span></code></pre></div>
 <p>Repeated Cluster CV: <code>rsample</code> compatible</p>
 <p>This function is extended based on <code>spatial_cluster_sample</code>, which is a wrapper around <code>spatial_clustering_cv</code> function of <strong>sptialsample</strong> package.</p>
 <div class="section level2">
 <h2 id="load-dataset">Load dataset<a class="anchor" aria-label="anchor" href="#load-dataset"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># load dataset</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/suvedimukti/stdcab" class="external-link">stdcab</a></span><span class="op">)</span></span>
 <span></span>
@@ -209,7 +155,7 @@
 <div class="section level2">
 <h2 id="visualize-the-data">Visualize the data<a class="anchor" aria-label="anchor" href="#visualize-the-data"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># load ggplot 2 for visualization</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dspatial</span><span class="op">)</span><span class="op">+</span></span>
@@ -223,7 +169,7 @@
 <h2 id="apply-repeated-cluster-sampling-on-sf-data">Apply repeated cluster sampling on sf data<a class="anchor" aria-label="anchor" href="#apply-repeated-cluster-sampling-on-sf-data"></a>
 </h2>
 <p>To make visualization easy lets make five folds and five repeats resulting 25 splits of data based on <strong>kmeans</strong> clustering.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># setting seeds</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1318</span><span class="op">)</span></span>
 <span></span>
@@ -262,7 +208,7 @@
 <h2 id="visualize-clusters">Visualize clusters<a class="anchor" aria-label="anchor" href="#visualize-clusters"></a>
 </h2>
 <p>Following chunk of code is a function to run each split at a time to visualize <code>Analysis\Training</code> and <code>Assessment\Testing</code> set in each fold and repeats.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span> <span class="co"># </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'magrittr'</span></span>
@@ -287,7 +233,7 @@
 <div class="section level2">
 <h2 id="plotting">Plotting<a class="anchor" aria-label="anchor" href="#plotting"></a>
 </h2>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># plot using walk function from purrr package</span></span>
 <span><span class="co"># this requires gifski package</span></span>
 <span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">walk</a></span><span class="op">(</span><span class="va">spc_rcv</span><span class="op">$</span><span class="va">splits</span>, <span class="va">fplot_splits</span><span class="op">)</span></span></code></pre></div>
