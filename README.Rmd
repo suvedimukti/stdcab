@@ -25,13 +25,13 @@ The goal of the **stdcab** package is to apply spatial thinning on multi-class s
 
 You can install the released version of stdcab from [CRAN](https://cran.r-project.org) with:
 
-``` {r 
+``` {r, installpkg, eval = TRUE }
 install.packages("stdcab")
 ```
 
 To install the latest stdcab version from [GitHub](https://github.com/) use:
 
-```{r gitinstall}
+```{r gitinstall, eval=FALSE}
 remotes::install_github('suvedimukti/stdcab')
 ```
  Repeated Cluster CV: `rsample` compatible

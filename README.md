@@ -22,68 +22,15 @@ observations.
 You can install the released version of stdcab from
 [CRAN](https://cran.r-project.org) with:
 
-`{r  install.packages("stdcab")`
+``` r
+install.packages("stdcab")
+```
 
 To install the latest stdcab version from [GitHub](https://github.com/)
 use:
 
 ``` r
 remotes::install_github('suvedimukti/stdcab')
-#> Downloading GitHub repo suvedimukti/stdcab@HEAD
-#> vctrs   (0.6.2        -> 0.6.3       ) [CRAN]
-#> cpp11   (0.4.4        -> 0.4.5       ) [CRAN]
-#> ggplot2 (2a7ca74e2... -> 1f27ffec3...) [GitHub]
-#> Installing 2 packages: vctrs, cpp11
-#> Installing packages into 'C:/Users/suved/AppData/Local/R/win-library/4.3'
-#> (as 'lib' is unspecified)
-#> package 'vctrs' successfully unpacked and MD5 sums checked
-#> Warning: cannot remove prior installation of package 'vctrs'
-#> Warning in file.copy(savedcopy, lib, recursive = TRUE): problem copying
-#> C:\Users\suved\AppData\Local\R\win-library\4.3\00LOCK\vctrs\libs\x64\vctrs.dll
-#> to C:\Users\suved\AppData\Local\R\win-library\4.3\vctrs\libs\x64\vctrs.dll:
-#> Permission denied
-#> Warning: restored 'vctrs'
-#> package 'cpp11' successfully unpacked and MD5 sums checked
-#> 
-#> The downloaded binary packages are in
-#>  C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\downloaded_packages
-#> Downloading GitHub repo tidyverse/ggplot2@HEAD
-#> vctrs (0.6.2 -> 0.6.3) [CRAN]
-#> Installing 1 packages: vctrs
-#> Installing package into 'C:/Users/suved/AppData/Local/R/win-library/4.3'
-#> (as 'lib' is unspecified)
-#> package 'vctrs' successfully unpacked and MD5 sums checked
-#> Warning: cannot remove prior installation of package 'vctrs'
-#> Warning in file.copy(savedcopy, lib, recursive = TRUE): problem copying
-#> C:\Users\suved\AppData\Local\R\win-library\4.3\00LOCK\vctrs\libs\x64\vctrs.dll
-#> to C:\Users\suved\AppData\Local\R\win-library\4.3\vctrs\libs\x64\vctrs.dll:
-#> Permission denied
-#> Warning: restored 'vctrs'
-#> 
-#> The downloaded binary packages are in
-#>  C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\downloaded_packages
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25801e406f7c\tidyverse-ggplot2-1f27ffe/DESCRIPTION' ...     checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25801e406f7c\tidyverse-ggplot2-1f27ffe/DESCRIPTION' ...   ✔  checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25801e406f7c\tidyverse-ggplot2-1f27ffe/DESCRIPTION' (437ms)
-#>       ─  preparing 'ggplot2': (16.1s)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
-#>       ─  checking for LF line-endings in source and make files and shell scripts (1s)
-#>       ─  checking for empty or unneeded directories
-#>       ─  building 'ggplot2_3.4.2.9000.tar.gz'
-#>      
-#> 
-#> Installing package into 'C:/Users/suved/AppData/Local/R/win-library/4.3'
-#> (as 'lib' is unspecified)
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25804e99304b\suvedimukti-stdcab-e0bbf4b/DESCRIPTION' ...     checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25804e99304b\suvedimukti-stdcab-e0bbf4b/DESCRIPTION' ...   ✔  checking for file 'C:\Users\suved\AppData\Local\Temp\RtmpE9dCl8\remotes25804e99304b\suvedimukti-stdcab-e0bbf4b/DESCRIPTION' (518ms)
-#>       ─  preparing 'stdcab': (524ms)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
-#>       ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>       ─  building 'stdcab_0.1.0.tar.gz'
-#>      
-#> 
-#> Installing package into 'C:/Users/suved/AppData/Local/R/win-library/4.3'
-#> (as 'lib' is unspecified)
 ```
 
 Repeated Cluster CV: `rsample` compatible
